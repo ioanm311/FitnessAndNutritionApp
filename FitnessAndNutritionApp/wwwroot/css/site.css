@@ -1,0 +1,540 @@
+﻿/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+/*=============== VARIABLES CSS ===============*/
+:root {
+    --header-height: 3.5rem;
+    /*========== Colors ==========*/
+    /*Color mode HSL(hue, saturation, lightness)*/
+    --first-color: hsl(220, 68%, 54%);
+    --first-color-lighten: hsl(220, 68%, 97%);
+    --title-color: hsl(220, 48%, 28%);
+    --text-color: hsl(220, 12%, 45%);
+    --body-color: hsl(220, 100%, 99%);
+    /*========== Font and typography ==========*/
+    /*.5rem = 8px | 1rem = 16px ...*/
+    --body-font: "Poppins", sans-serif;
+    --normal-font-size: .938rem;
+    --small-font-size: .813rem;
+    --smaller-font-size: .75rem;
+    /*========== Font weight ==========*/
+    --font-medium: 500;
+    --font-semi-bold: 600;
+    /*========== z index ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+}
+
+@media screen and (min-width: 1024px) {
+    :root {
+        --normal-font-size: 1rem;
+        --small-font-size: .875rem;
+        --smaller-font-size: .813rem;
+    }
+}
+
+/*=============== BASE ===============*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    font-size: .938rem;
+    background-color: hsl(220, 100%, 99%);
+    color: hsl(220, 12%, 45%);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+/*=============== REUSABLE CSS CLASSES ===============*/
+.container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+}
+
+/*=============== HEADER ===============*/
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-shadow: 0 2px 8px hsla(220, 68%, 12%, 0.1);
+    background-color: hsl(220, 100%, 99%);
+    z-index: 100;
+}
+
+/*=============== NAV ===============*/
+.nav {
+    height: 3.5rem;
+}
+
+.nav__data {
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav__logo {
+    display: inline-flex;
+    align-items: center;
+    column-gap: 0.25rem;
+    color: hsl(220, 48%, 28%);
+    font-weight: 600;
+    transition: color 0.3s;
+}
+
+.nav__logo i {
+    font-size: 1.25rem;
+}
+
+.nav__logo:hover {
+    color: hsl(220, 68%, 54%);
+}
+
+.nav__toggle {
+    position: relative;
+    width: 32px;
+    height: 32px;
+}
+
+.nav__toggle-menu, .nav__toggle-close {
+    font-size: 1.25rem;
+    color: hsl(220, 48%, 28%);
+    position: absolute;
+    display: grid;
+    place-items: center;
+    inset: 0;
+    cursor: pointer;
+    transition: opacity 0.1s, transform 0.4s;
+}
+
+.nav__toggle-close {
+    opacity: 0;
+}
+
+@media screen and (max-width: 1118px) {
+    .nav__menu {
+        background-color: hsl(220, 100%, 99%);
+        position: absolute;
+        left: 0;
+        top: 2.5rem;
+        width: 100%;
+        height: calc(100vh - 3.5rem);
+        overflow: auto;
+        padding-block: 1.5rem 4rem;
+        pointer-events: none;
+        opacity: 0;
+        transition: top 0.4s, opacity 0.3s;
+    }
+
+    .circle-btn {
+        margin-left: 1rem; /* sau oricât spațiu dorești să adaugi */
+    }
+
+    .nav__menu::-webkit-scrollbar {
+        width: 0.5rem;
+    }
+
+    .nav__menu::-webkit-scrollbar-thumb {
+        background-color: hsl(220, 12%, 70%);
+    }
+
+    .nav__auth-container {
+        position: absolute;
+        right: 50px; /* Ajustează după cum este necesar */
+        top: 50%; /* Poziționează containerul la jumătatea înălțimii */
+        transform: translateY(-50%); /* Deplasează containerul înapoi cu jumătate din propria înălțime pentru a centra */
+        z-index: 100; /* Asigură-te că este sub .nav__toggle dar peste alte elemente */
+        display: flex;
+        align-items: center;
+    }
+
+    /* Ajustează padding-ul butoanelor dacă este necesar */
+    .nav__auth-link {
+        padding: 10px 12px; /* sau orice alte valori necesare */
+        margin-right: 10px; /* sau ajustează acesta cum este necesar */
+    }
+
+    /* Ajustează ultimul buton, dacă este necesar */
+    .nav__auth-link:last-child {
+        margin-right: 0;
+    }
+}   
+
+.nav__link {
+    color: hsl(220, 48%, 28%);
+    font-weight: 600;
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+
+button.nav__auth-link {
+    background: none;
+    border: none;
+    color: var(--title-color); /* Acesta este culoarea specificată pentru linkuri în variabilele CSS */
+    padding: var(--padding-link); /* Trebuie să setezi o variabilă pentru padding sau să folosești o valoare direct */
+    cursor: pointer;
+    text-align: left;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+button.nav__auth-link:hover {
+    color: var(--first-color); /* Efect de hover pentru a indica interactivitatea */
+}
+
+/* Stiluri specifice pentru butonul circular cu clasa .circle-btn */
+.circle-btn {
+    background-color: hsl(220, 48%, 28%); /* Culoarea de fundal a butonului */
+    border-radius: 50%; /* Face butonul rotund */
+    color: white; /* Culoarea textului */
+    display: flex; /* Centrarea conținutului butonului */
+    align-items: center; /* Centrarea verticală */
+    justify-content: center; /* Centrarea orizontală */
+    font-size: 1rem; /* Dimensiunea textului */
+    width: 40px; /* Lățimea butonului */
+    height: 40px; /* Înălțimea butonului */
+    margin-top: 24px; /* Ajustează acest număr pentru a coborî butonul 'U' */
+    position: relative; /* Setează la relativ pentru a putea ajusta poziționarea */
+}
+
+.nav__link:hover {
+    background-color: hsl(220, 68%, 97%);
+}
+/* Aliniază containerul de autentificare la dreapta */
+.nav__auth-container {
+    display: flex;
+    justify-content: flex-end; /* Aliniază butoanele la capătul din dreapta */
+}
+
+/* Stiluri pentru linkurile din containerul de autentificare */
+.nav__auth-link {
+    padding: 10px 15px;
+    margin-right: 20px;
+}
+/* Show menu */
+.show-menu {
+    opacity: 1;
+    top: 3.5rem;
+    pointer-events: initial;
+}
+
+/* Show icon */
+.show-icon .nav__toggle-menu {
+    opacity: 0;
+    transform: rotate(90deg);
+}
+
+.show-icon .nav__toggle-close {
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+/*=============== DROPDOWN ===============*/
+.dropdown__button {
+    cursor: pointer;
+}
+
+.dropdown__arrow {
+    font-size: 1.5rem;
+    font-weight: initial;
+    transition: transform 0.4s;
+}
+
+.dropdown__content, .dropdown__group, .dropdown__list {
+    display: grid;
+}
+
+.dropdown__container {
+    background-color: hsl(220, 68%, 97%);
+    height: 0;
+    overflow: hidden;
+    transition: height 0.4s;
+}
+
+.dropdown__content {
+    row-gap: 1.75rem;
+}
+
+.dropdown__group {
+    padding-left: 2.5rem;
+    row-gap: 0.5rem;
+}
+
+.dropdown__group:first-child {
+    margin-top: 1.25rem;
+}
+
+.dropdown__group:last-child {
+    margin-bottom: 1.25rem;
+}
+
+.dropdown__icon i {
+    font-size: 1.25rem;
+    color: hsl(220, 68%, 54%);
+}
+
+.dropdown__title {
+    font-size: var(--small-font-size);
+    font-weight: 600;
+    color: hsl(220, 48%, 28%);
+}
+
+.dropdown__list {
+    row-gap: 0.25rem;
+}
+
+.dropdown__link {
+    font-size: var(--smaller-font-size);
+    font-weight: 500;
+    color: hsl(220, 12%, 45%);
+    transition: color 0.3s;
+}
+
+.dropdown__link:hover {
+    color: hsl(220, 48%, 28%);
+}
+
+/* Rotate dropdown icon */
+.show-dropdown .dropdown__arrow {
+    transform: rotate(180deg);
+}
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 300px) {
+    .dropdown__group {
+        padding-left: 1.5rem;
+    }
+}
+/* For large devices */
+@media screen and (min-width: 1118px) {
+    /* Nav */
+    .nav {
+        height: calc(3.5rem + 2rem);
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .nav__toggle {
+        display: none;
+    }
+
+    .nav__list {
+        display: flex;
+        column-gap: 3rem;
+        height: 100%;
+    }
+
+    .nav li {
+        display: flex;
+    }
+
+    .nav__link {
+        padding: 0;
+    }
+
+    .nav__link:hover {
+        background-color: initial;
+    }
+    /* Dropdown */
+    .dropdown__button {
+        column-gap: 0.25rem;
+        pointer-events: none;
+    }
+
+    .dropdown__container {
+        height: max-content;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 6.5rem;
+        background-color: hsl(220, 100%, 99%);
+        box-shadow: 0 6px 8px hsla(220, 68%, 12%, 0.05);
+        pointer-events: none;
+        opacity: 0;
+        transition: top 0.4s, opacity 0.3s;
+        /*nou*/
+        display: flex; /* folosește flexbox pentru a centra conținutul */
+        justify-content: center; /* centrează conținutul pe orizontală */
+        align-items: center; /* centrează conținutul pe verticală */
+    }
+
+    .dropdown__content {
+        grid-template-columns: repeat(4, max-content);
+        column-gap: 6rem;
+        max-width: 1120px;
+        margin-inline: auto;
+        /*nou*/
+        padding: 0.65rem 0;
+    }
+
+    .dropdown__group {
+        padding: 4rem 0;
+        align-content: baseline;
+        row-gap: 1.25rem;
+        /*nou*/
+        justify-self: center; /* centrează fiecare grup pe orizontală în grid-ul lor */
+        width: auto;
+    }
+
+    .dropdown__group:first-child, .dropdown__group:last-child {
+        margin: 0;
+    }
+
+    .dropdown__list {
+        row-gap: 0.75rem;
+    }
+
+    .dropdown__icon {
+        width: 60px;
+        height: 60px;
+        background-color: hsl(220, 68%, 97%);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        margin-bottom: 1rem;
+    }
+
+    .dropdown__icon i {
+        font-size: 2rem;
+    }
+
+    .dropdown__title {
+        font-size: var(--normal-font-size);
+    }
+
+    .dropdown__link {
+        font-size: var(--small-font-size);
+    }
+
+    .dropdown__link:hover {
+        color: hsl(220, 68%, 54%);
+    }
+
+    .dropdown__item {
+        cursor: pointer;
+    }
+
+    .dropdown__item:hover .dropdown__arrow {
+        transform: rotate(180deg);
+    }
+
+    .dropdown__item:hover > .dropdown__container {
+        top: 5.5rem;
+        opacity: 1;
+        pointer-events: initial;
+        cursor: initial;
+    }
+}
+
+@media screen and (min-width: 1152px) {
+    .container {
+        margin-inline: auto;
+    }
+}
+
+/* FOOOOTERRR */
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: auto;
+    background-color: hsl(220, 48%, 28%);
+    padding: 60px 10%;
+}
+
+.footer-col {
+    width: 25%;
+}
+
+    .footer-col h4 {
+        position: relative;
+        margin-bottom: 30px;
+        font-weight: 400;
+        font-size: 22px;
+        color: hsl(220, 100%, 99%);
+        text-transform: capitalize;
+    }
+
+.footer-col h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    background-color: hsl(220, 68%, 54%);
+    height: 2px;
+    width: 40px;
+}
+
+.footer-content ul li:not(:last-child) {
+    margin-bottom: 8px;
+}
+
+.footer-content ul li a {
+    display: block;
+    font-size: 19px;
+    text-transform: capitalize;
+    color: hsl(220, 12%, 45%);
+    text-decoration: none;
+    transition: 0.4s;
+}
+
+.footer-content ul li a:hover {
+    color: white;
+    padding-left: 2px;
+}
+
+.links a {
+    display: inline-block;
+    height: 44px;
+    width: 44px;
+    color: white;
+    background-color: rgba(40, 130, 214, 0.8);
+    margin: 0 8px 8px 0;
+    text-align: center;
+    line-height: 44px;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.links a:hover {
+    color: #4d4f55;
+    background-color: white;
+}
+
+@media(max-width: 740px) {
+    .footer-col {
+        width: 50%;
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .footer-col h4::before {
+        all: unset;
+    }
+}
+
+@media(max-width: 555px) {
+    .footer-col {
+        width: 100%;
+    }
+}
+

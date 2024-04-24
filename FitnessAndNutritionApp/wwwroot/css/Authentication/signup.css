@@ -1,0 +1,126 @@
+﻿body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Păstrăm același font */
+    background: #fff; /* Background alb */
+}
+
+.form-title {
+    position: relative; /* Poziția relativă */
+    font-size: 38px;
+    width: 100%; /* Lățimea completă */
+    text-align: center; /* Text centrat */
+    font-weight: 700;
+}
+
+.login-link-container {
+    text-align: center; /* Centrează linkul */
+    margin-top: 10px; /* Spațiu deasupra linkului */
+}
+
+.login-link {
+    font-size: 0.8em; /* Mărimea fontului */
+    color: #000000; /* Culoare text */
+    text-decoration: underline; /* Subliniază linkul */
+    display: inline-block; /* Poziționează elementul inline */
+    margin-top: 15px; /* Spațiu deasupra */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.signup-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Elementele într-o coloană */
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0; /* Padding pentru centrare */
+    margin-top: -100px;
+}
+
+.signup-image {
+    flex: 1;
+    background-image: url('../../resources/Authentication/signup.jpg'); 
+    background-size: cover;
+    background-position: center;
+}
+
+form {
+    box-shadow: none; /* Fără umbră */
+    border: none; /* Fără bordură */
+    padding: 40px;
+    background: #ffffff; /* Background alb */
+    width: 60%; /* Lățime ajustată */
+    max-width: 500px; /* Lățime maximă */
+    margin-top: -50px; /* Ajustare poziție verticală */
+}
+
+.form-group {
+    margin-bottom: 20px; /* Spațiere între câmpuri */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333; /* Culoare text */
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"] { /* Adăugăm input de tip text pentru nume și prenume */
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Spațiere */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: #000; /* Buton negru */
+    color: #fff; /* Text alb */
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+    outline: none;
+    box-shadow: none;
+}
+
+button[type="submit"]:hover {
+    background-color: #444; /* Culoare mai închisă la hover */
+ }
+
+.text-danger {
+    color: #ff3860; /* Roșu pentru erori */
+}
+
+@media (max-width: 1111px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .signup-image {
+        display: none;
+    }
+
+    .signup-form {
+        width: 80%;
+        margin-top: -50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .signup-form {
+        width: 90%;
+        margin-top: 0;
+    }
+}

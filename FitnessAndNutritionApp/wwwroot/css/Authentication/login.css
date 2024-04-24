@@ -1,0 +1,137 @@
+﻿/* Stilul de bază */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font mai modern */
+    background: #fff; /* Setează un background alb sau altă culoare dorită */
+}
+
+.form-title {
+    position: relative; /* Schimbăm poziția în relativă */
+    font-size: 38px;
+    width: 100%; /* Face titlul să aibă lățimea completă a containerului său */
+    text-align: center; /* Centrează textul */
+    font-weight: 700;
+}
+
+.form-links {
+    display: flex; /* Activează flexbox */
+    justify-content: space-between; /* Distribuie spațiul egal între linkuri */
+    align-items: center; /* Centrează elementele pe verticală */
+    margin-top: 8px; /* Spațiu deasupra */
+    margin-bottom: 8px; /* Spațiu dedesubt */
+}
+
+/* Stiluri comune pentru ambele linkuri */
+.form-links a {
+    font-size: 0.8em; /* Mărimea fontului */
+    color: #000000; /* Culoare text */
+    text-decoration: underline; /* Subliniază linkul */
+    cursor: pointer; /* Cursor ca pentru un link */
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Stil pentru partea de formular */
+.login-form {
+    flex: 1;
+    display: flex;
+    flex-direction: column; /* Aranjăm elementele într-o coloană */
+    justify-content: center;
+    align-items: center;
+    padding: 60px 0; /* Ajustăm padding-ul pentru a centra conținutul */
+    margin-top: -100px;
+}
+
+/* Stil pentru partea cu imagine */
+.login-image {
+    flex: 1;
+    background-image: url('../../resources/Authentication/login.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+/* Stilizarea formularului în interiorul containerului său */
+form {
+    box-shadow: none; /* Înlăturăm umbra */
+    border: none; /* Înlăturăm bordura */
+    padding: 40px;
+    background: #ffffff; /* Background alb pentru formular */
+    width: 60%; /* Lățimea formularului ajustată */
+    max-width: 500px; /* Lățime maximă ajustată */
+    margin-top: -50px; /* Ajustează poziționarea verticală */
+}
+
+/* Stilizarea inputurilor și etichetelor */
+.form-group {
+    margin-bottom: 20px; /* Spațiere între câmpuri */
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #333; /* Culoare mai închisă pentru text */
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px; /* Spațiere între input și mesajul de eroare */
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Stilizarea butonului de submit */
+button[type="submit"] {
+    width: 100%;
+    padding: 15px; /* Ajustează grosimea pentru confort */
+    margin-top: 10px; /* Spațiere deasupra butonului */
+    border: none;
+    border-radius: 20px; /* Mărește valoarea pentru un efect mai rotunjit */
+    background-color: #000; /* Buton negru */
+    color: #fff; /* Text alb */
+    font-size: 16px; /* Mărimea fontului */
+    cursor: pointer;
+    font-weight: bold; /* Facem textul mai gros */
+    outline: none; /* Elimină conturul atunci când butonul este focusat */
+    box-shadow: none; /* Elimină orice umbră dacă este setată */
+}
+
+button[type="submit"]:hover {
+    background-color: #444; /* Închide culoarea la hover */
+}
+
+/* Mesajele de eroare */
+.text-danger {
+    color: #ff3860; /* O nuanță de roșu pentru erori */
+}
+
+/* Media query pentru ecrane mai mici */
+@media (max-width: 1111px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .login-image {
+        display: none;
+    }
+
+    .login-form {
+        width: 80%; /* Ajustează lățimea pe ecrane mai mici */
+        margin-top: -50px; /* Menține formularul mai sus */
+    }
+}
+
+/* Media query pentru ecrane și mai mici */
+@media (max-width: 768px) {
+    .login-form {
+        width: 90%; /* Lățimea formularului mai mare pe ecrane foarte mici */
+        margin-top: 0; /* Reset la marginea de sus */
+    } 
+}

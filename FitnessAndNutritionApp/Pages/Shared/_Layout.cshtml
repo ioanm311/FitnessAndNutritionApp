@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="~/css/site.css">
+        <title>NutriFit</title>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="nav container">
+                <div class="nav__data">
+                    <a href="#" class="nav__logo">
+                    <i class="ri-code-s-slash-line"></i> NutriFit
+                    </a>
+    
+                    <div class="nav__toggle" id="nav-toggle">
+                        <i class="ri-menu-line nav__toggle-menu"></i>
+                        <i class="ri-close-line nav__toggle-close"></i>
+                    </div>
+                </div>
+
+                <!-- NAV MENU -->
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li>
+                            <a href="#" class="circle-btn">U</a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav__link">Home</a>
+                        </li>
+
+                        <!-- My Training Plan -->
+                        <li class="dropdown__item">                      
+                            <div class="nav__link dropdown__button">
+                                My Training Plan <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-run-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">My Plan</span>
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Customize your training</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Training by experts in the field for maintenance,<br> slimming and muscle mass accumulation</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                        <i class="ri-file-paper-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Educational Resources</span>
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Learn how to train correctly</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Explanations with pictures and video of how to perform each exercise<br>to achieve the desired result</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <!-- My Training Plan -->
+                        <li class="dropdown__item">
+                            <div class="nav__link dropdown__button">
+                                My Nutrition Plan <i class="ri-arrow-down-s-line dropdown__arrow"></i>
+                            </div>
+
+                            <div class="dropdown__container">
+                                <div class="dropdown__content">
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                            <i class="ri-restaurant-fill"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">My Plan</span>
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Customize your meals</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Pre-set meals before and after training or regular, healthy,<br>vitamin-rich meals made by nutritionists</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+    
+                                    <div class="dropdown__group">
+                                        <div class="dropdown__icon">
+                                        <i class="ri-file-paper-2-line"></i>
+                                        </div>
+    
+                                        <span class="dropdown__title">Educational Resources</span>
+                                        <ul class="dropdown__list">
+                                            <li>
+                                                <a href="#" class="dropdown__link">Learn how to eat healthy</a>
+                                            </li>
+                                            <li>
+                                                <a href="#" class="dropdown__link">Learn about the benefits of each food, create a proper diet<br>Start a healthy life!</a>
+                                            </li>                                
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="/Company/AboutUs" class="nav__link">About Us</a>
+                        </li>
+
+                        </ul>
+                    </ul>
+                </div>
+
+                <div class="nav__auth-container">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        if (ViewData["DisplayName"].ToString() == "Administrator")
+                        {
+                            <li class="nav__link nav__auth-link">
+                                <span class="nav-link">@ViewData["DisplayName"]</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM6.02332 15.4163C7.49083 17.6069 9.69511 19 12.1597 19C14.6243 19 16.8286 17.6069 18.2961 15.4163C16.6885 13.9172 14.5312 13 12.1597 13C9.78821 13 7.63095 13.9172 6.02332 15.4163ZM12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z"></path></svg>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav__link nav__auth-link">
+                                <span class="nav-link">Hello, @ViewData["DisplayName"]!</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="36" height="36" fill="currentColor"><path d="M12 2C17.52 2 22 6.48 22 12C22 17.52 17.52 22 12 22C6.48 22 2 17.52 2 12C2 6.48 6.48 2 12 2ZM6.02332 15.4163C7.49083 17.6069 9.69511 19 12.1597 19C14.6243 19 16.8286 17.6069 18.2961 15.4163C16.6885 13.9172 14.5312 13 12.1597 13C9.78821 13 7.63095 13.9172 6.02332 15.4163ZM12 11C13.6569 11 15 9.65685 15 8C15 6.34315 13.6569 5 12 5C10.3431 5 9 6.34315 9 8C9 9.65685 10.3431 11 12 11Z"></path></svg>
+                            </li>
+                        }
+                       <!-- Dacă utilizatorul este autentificat, arată doar butonul de Logout -->
+                       <li class="nav__link nav__auth-link">
+                            <form asp-page="/Auth/Logout" method="post" class="form-inline">
+                                <button type="submit" class="nav__link nav__auth-link">Logout</button>
+                            </form>
+                       </li>
+                    }
+                    else
+                    {
+                        <!-- Dacă utilizatorul nu este autentificat, arată butoanele de Login și SignUp -->
+                        <a href="/Auth/Login" class="nav__link nav__auth-link">Login</a>
+                        <a href="/Auth/SignUp" class="nav__link nav__auth-link">Sign Up</a>
+                    }
+                </div>
+            </nav>
+        </header>
+
+        @RenderBody()
+
+        <footer class="footer-content">
+            <div class="footer-col">
+                <h4>products</h4>
+                <ul>
+                    <li><a href="#">teams</a></li>
+                    <li><a href="#">advertising</a></li>
+                    <li><a href="#">talent</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>network</h4>
+                <ul>
+                    <li><a href="#">technology</a></li>
+                    <li><a href="#">science</a></li>
+                    <li><a href="#">business</a></li>
+                    <li><a href="#">professional</a></li>
+                    <li><a href="#">API</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>company</h4>
+                <ul>
+                    <li><a href="#">about</a></li>
+                    <li><a href="#">legal</a></li>
+                    <li><a href="#">contact us</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>follow us</h4>
+                <div class="links">
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </footer>
+
+        <!--=============== MAIN JS ===============-->
+        <script src="~/js/site.js"></script>
+    </body>
+</html>

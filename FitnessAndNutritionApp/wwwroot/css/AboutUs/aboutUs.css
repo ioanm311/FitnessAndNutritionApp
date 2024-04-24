@@ -1,0 +1,58 @@
+﻿.content-section {
+    display: flex;
+    align-items: flex-start; /* Aliniază elementele la partea de sus a containerului */
+    justify-content: space-between; /* Distribuie spațiu între text și imagine */
+    margin-bottom: 2rem; /* Adaugă un spațiu între secțiuni */
+    margin-top: 120px; /* Spațiu deasupra primei secțiuni */
+    padding: 0 40px; /* Acesta va adăuga spațiu pe partea stângă și dreaptă a secțiunii de conținut */
+}
+
+.text-container,
+.image-container {
+    flex: 1; /* Ambii containere vor ocupa 50% din spațiu */
+    /* Elimină orice padding din .text-container pentru a alinia textul la marginea .content-section */
+}
+
+/* Dacă există stiluri globale care afectează padding-ul, setează-le explicit pe aici */
+.text-container {
+    padding-left: 0; /* Setează padding-ul la 0 pentru a alinia textul la începutul containerului */
+    margin-right: 20px; /* Adaugă un spațiu între text și imagine */
+}
+
+.image-container img {
+    max-width: 100%; /* Ajustează acest număr pentru a scala imaginea cum preferi */
+    height: auto;
+    display: block; /* Elimină spațiul extra sub imagine */
+}
+
+/* Îmbunătățirea stilului textului */
+.text-container h2 {
+    font-size: 2em; /* Ajustează mărimea titlului */
+    font-weight: bold; /* Ajustează greutatea fontului */
+    margin-bottom: 0.5em; /* Spațiu sub titlu */
+}
+
+.text-container p {
+    font-size: 1.2em; /* Ajustează mărimea textului paragrafului */
+    line-height: 1.6; /* Ajustează înălțimea liniei pentru lizibilitate */
+    color: #333; /* Ajustează culoarea textului, dacă este necesar */
+    text-align: justify; /* Justifică paragrafele în containerul text */
+}
+
+@media (max-width: 768px) {
+    .content-section {
+        flex-direction: column; /* Stivuiește blocurile pe mobil */
+        text-align: center; /* Centrează textul pe mobil */
+    }
+
+    .text-container,
+    .image-container {
+        width: 100%; /* Lățime completă pentru mobil */
+        padding: 0; /* Elimină padding-ul pe mobil */
+    }
+
+        .image-container img {
+            width: 100%; /* Lățime completă pentru imagini pe mobil */
+            margin-bottom: 20px; /* Spațiu sub imagine pe mobil */
+        }
+}
