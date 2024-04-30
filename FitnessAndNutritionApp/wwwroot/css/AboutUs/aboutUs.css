@@ -10,7 +10,6 @@
 .text-container,
 .image-container {
     flex: 1; /* Ambii containere vor ocupa 50% din spațiu */
-    /* Elimină orice padding din .text-container pentru a alinia textul la marginea .content-section */
 }
 
 /* Dacă există stiluri globale care afectează padding-ul, setează-le explicit pe aici */
@@ -39,7 +38,14 @@
     text-align: justify; /* Justifică paragrafele în containerul text */
 }
 
-@media (max-width: 768px) {
+.image-container2 img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Elimină spațiul extra sub imagine */
+    margin-left: 100px; /* Ajustează această valoare conform designului tău */
+}
+
+@media (max-width: 1111px) {
     .content-section {
         flex-direction: column; /* Stivuiește blocurile pe mobil */
         text-align: center; /* Centrează textul pe mobil */
@@ -47,12 +53,19 @@
 
     .text-container,
     .image-container {
-        width: 100%; /* Lățime completă pentru mobil */
-        padding: 0; /* Elimină padding-ul pe mobil */
+        width: 100%; 
+        padding: 0; 
     }
 
-        .image-container img {
-            width: 100%; /* Lățime completă pentru imagini pe mobil */
-            margin-bottom: 20px; /* Spațiu sub imagine pe mobil */
-        }
+     .image-container img {
+        width: 100%; 
+        margin-bottom: 20px; 
+     }
+
+    .image-container2 img {
+        max-width: 100%; 
+        height: auto; 
+        margin-left: auto; 
+        margin-right: auto;
+    }
 }
