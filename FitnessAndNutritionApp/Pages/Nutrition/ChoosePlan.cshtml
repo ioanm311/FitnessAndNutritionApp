@@ -1,0 +1,46 @@
+﻿@page
+@model FitnessAndNutritionApp.Pages.Nutrition.ChoosePlanModel
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Nutrition Plan - NutriFit</title>
+    <link href="~/css/ChoosePlan/Nutrition/choosePlan.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <div class="background-section"></div>
+        <div class="content-section">
+            <h2 class="text-center">Choose Your Nutrition Plan</h2>
+            <div class="plan-container">
+                <div class="plan">
+                    <img src="~/resources/ChoosePlan/Nutrition/weight_loss.jpg" alt="Weight Loss Diet">
+                    <p class="plan-title">Weight Loss Diet</p>
+                    <form method="post" asp-page="/Nutrition/PlanDetails">
+                        <button type="submit" name="planChoice" value="weight_loss_diet" class="btn-select">Choose Plan</button>
+                    </form>
+                </div>
+                <div class="plan">
+                    <img src="~/resources/ChoosePlan/Nutrition/muscle_gain.jpg" alt="Muscle Gain Diet">
+                    <p class="plan-title">Muscle Gain Diet</p>
+                    <form method="post" asp-page="/Nutrition/PlanDetails">
+                        <button type="submit" name="planChoice" value="muscle_gain_diet" class="btn-select">Choose Plan</button>
+                    </form>
+                </div>
+                <div class="plan">
+                    <img src="~/resources/ChoosePlan/Nutrition/balanced_diet.jpg" alt="Balanced Diet">
+                    <p class="plan-title">Balanced Diet</p>
+                    <form method="post" asp-page="/Nutrition/PlanDetails">
+                        <button type="submit" name="planChoice" value="balanced_diet" class="btn-select">Choose Plan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,6 +4,7 @@ using FitnessAndNutritionApp.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessAndNutritionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240501135855_AddFitnessPlanMigration")]
+    partial class AddFitnessPlanMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,34 +51,6 @@ namespace FitnessAndNutritionApp.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("FitnessPlans");
-                });
-
-            modelBuilder.Entity("FitnessAndNutritionApp.Models.NutritionPlan", b =>
-                {
-                    b.Property<int>("NutritionPlanID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NutritionPlanID"));
-
-                    b.Property<bool>("IsActive")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTime>("LastResetDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("PlanType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("UserID")
-                        .HasColumnType("int");
-
-                    b.HasKey("NutritionPlanID");
-
-                    b.HasIndex("UserID");
-
-                    b.ToTable("NutritionPlans");
                 });
 
             modelBuilder.Entity("FitnessAndNutritionApp.Models.Role", b =>
@@ -288,17 +263,6 @@ namespace FitnessAndNutritionApp.Migrations
                 });
 
             modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlan", b =>
-                {
-                    b.HasOne("FitnessAndNutritionApp.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
-                });
-
-            modelBuilder.Entity("FitnessAndNutritionApp.Models.NutritionPlan", b =>
                 {
                     b.HasOne("FitnessAndNutritionApp.Models.User", "User")
                         .WithMany()

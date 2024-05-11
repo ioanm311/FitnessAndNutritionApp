@@ -6,7 +6,7 @@ namespace FitnessAndNutritionApp.Models
 {
     public class BasePageModel : PageModel
     {
-        private readonly UserManager<User> _userManager;
+        protected readonly UserManager<User> _userManager;
 
         public BasePageModel(UserManager<User> userManager)
         {

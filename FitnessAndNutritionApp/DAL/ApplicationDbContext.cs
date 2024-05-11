@@ -11,5 +11,7 @@ namespace FitnessAndNutritionApp.DAL
         : base(options)
         {
         }
+        public DbSet<FitnessPlan> FitnessPlans { get; set; }
+        public DbSet<NutritionPlan> NutritionPlans { get; set; } 
     }
 }

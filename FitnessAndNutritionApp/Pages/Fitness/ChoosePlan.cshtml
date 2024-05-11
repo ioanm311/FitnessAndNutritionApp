@@ -1,0 +1,46 @@
+﻿@page
+@model FitnessAndNutritionApp.Pages.Fitness.ChoosePlanModel
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Choose Your Fitness Plan - NutriFit</title>
+    <link href="~/css/ChoosePlan/Fitness/choosePlan.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <div class="background-section"></div>
+        <div class="content-section">
+            <h2 class="text-center">Choose Your Fitness Plan</h2>
+            <div class="plan-container">
+                <div class="plan">
+                    <img src="~/resources/ChoosePlan/Fitness/weight_loss.jpg" alt="Weight Loss Plan">
+                    <p class="plan-title">Weight Loss</p>
+                    <form method="post" asp-page="/Fitness/PlanDetails">
+                        <button type="submit" name="planChoice" value="weight_loss" class="btn-select">Choose Plan</button>
+                    </form>
+                </div>
+                <div class="plan">
+                    <img src="~/resources/ChoosePlan/Fitness/grow_muscle.jpg" alt="Muscle Gain Plan">
+                    <p class="plan-title">Muscle Gain</p>
+                    <form method="post" asp-page="/Fitness/PlanDetails">
+                        <button type="submit" name="planChoice" value="muscle_gain" class="btn-select">Choose Plan</button>
+                    </form>
+                </div>
+                <div class="plan">
+                    <img src="~/resources/ChoosePlan/Fitness/maintenance.jpg" alt="Maintenance Plan">
+                    <p class="plan-title">Maintenance</p>
+                    <form method="post" asp-page="/Fitness/PlanDetails">
+                        <button type="submit" name="planChoice" value="maintenance" class="btn-select">Choose Plan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
