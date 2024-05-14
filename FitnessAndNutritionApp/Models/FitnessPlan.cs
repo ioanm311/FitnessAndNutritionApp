@@ -19,5 +19,8 @@ namespace FitnessAndNutritionApp.Models
 
         [DataType(DataType.Date)]
         public DateTime LastResetDate { get; set; }
+
+        public List<FitnessPlanDetail> FitnessPlanDetails { get; set; }
+
     }
 }

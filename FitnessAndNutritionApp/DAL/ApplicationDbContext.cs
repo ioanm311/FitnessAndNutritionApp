@@ -12,6 +12,27 @@ namespace FitnessAndNutritionApp.DAL
         {
         }
         public DbSet<FitnessPlan> FitnessPlans { get; set; }
-        public DbSet<NutritionPlan> NutritionPlans { get; set; } 
+        public DbSet<NutritionPlan> NutritionPlans { get; set; }
+        public DbSet<FitnessPlanDetail> FitnessPlanDetails { get; set; }
+        public DbSet<Exercise> Exercises { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+
+            // Configurare relație many-to-many între FitnessPlanDetail și Exercise
+            modelBuilder.Entity<FitnessPlanDetail>()
+            .HasMany(fpd => fpd.Exercises)
+            .WithMany(e => e.FitnessPlanDetails)
+            .UsingEntity<Dictionary<string, object>>(
+                "FitnessPlanDetailExercise", // Numele tabelului de join
+                j => j.HasOne<Exercise>()
+                    .WithMany()
+                    .HasForeignKey("ExerciseID"), // Nume personalizat pentru FK către Exercise
+                j => j.HasOne<FitnessPlanDetail>()
+                    .WithMany()
+                    .HasForeignKey("FitnessDetailID") // Nume personalizat pentru FK către FitnessPlanDetail
+            );
+        }
     }
 }

@@ -4,6 +4,7 @@ using FitnessAndNutritionApp.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessAndNutritionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240513143753_AddDayOfWeekToExercises")]
+    partial class AddDayOfWeekToExercises
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -375,7 +378,7 @@ namespace FitnessAndNutritionApp.Migrations
             modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlanDetail", b =>
                 {
                     b.HasOne("FitnessAndNutritionApp.Models.FitnessPlan", "FitnessPlan")
-                        .WithMany("FitnessPlanDetails")
+                        .WithMany()
                         .HasForeignKey("FitnessPlanID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -458,11 +461,6 @@ namespace FitnessAndNutritionApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlan", b =>
-                {
-                    b.Navigation("FitnessPlanDetails");
                 });
 #pragma warning restore 612, 618
         }

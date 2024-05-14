@@ -4,6 +4,7 @@ using FitnessAndNutritionApp.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FitnessAndNutritionApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240511081334_AddFitnessDetailsAndExercises")]
+    partial class AddFitnessDetailsAndExercises
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,6 +25,21 @@ namespace FitnessAndNutritionApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("ExerciseFitnessPlanDetail", b =>
+                {
+                    b.Property<int>("ExercisesExerciseID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("FitnessPlanDetailsFitnessDetailID")
+                        .HasColumnType("int");
+
+                    b.HasKey("ExercisesExerciseID", "FitnessPlanDetailsFitnessDetailID");
+
+                    b.HasIndex("FitnessPlanDetailsFitnessDetailID");
+
+                    b.ToTable("FitnessPlanDetailExercises", (string)null);
+                });
+
             modelBuilder.Entity("FitnessAndNutritionApp.Models.Exercise", b =>
                 {
                     b.Property<int>("ExerciseID")
@@ -29,10 +47,6 @@ namespace FitnessAndNutritionApp.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ExerciseID"));
-
-                    b.Property<string>("DayOfWeek")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -43,10 +57,6 @@ namespace FitnessAndNutritionApp.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PlanType")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -243,21 +253,6 @@ namespace FitnessAndNutritionApp.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("FitnessPlanDetailExercise", b =>
-                {
-                    b.Property<int>("ExerciseID")
-                        .HasColumnType("int");
-
-                    b.Property<int>("FitnessDetailID")
-                        .HasColumnType("int");
-
-                    b.HasKey("ExerciseID", "FitnessDetailID");
-
-                    b.HasIndex("FitnessDetailID");
-
-                    b.ToTable("FitnessPlanDetailExercise");
-                });
-
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.Property<int>("Id")
@@ -361,6 +356,21 @@ namespace FitnessAndNutritionApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("ExerciseFitnessPlanDetail", b =>
+                {
+                    b.HasOne("FitnessAndNutritionApp.Models.Exercise", null)
+                        .WithMany()
+                        .HasForeignKey("ExercisesExerciseID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FitnessAndNutritionApp.Models.FitnessPlanDetail", null)
+                        .WithMany()
+                        .HasForeignKey("FitnessPlanDetailsFitnessDetailID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlan", b =>
                 {
                     b.HasOne("FitnessAndNutritionApp.Models.User", "User")
@@ -375,7 +385,7 @@ namespace FitnessAndNutritionApp.Migrations
             modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlanDetail", b =>
                 {
                     b.HasOne("FitnessAndNutritionApp.Models.FitnessPlan", "FitnessPlan")
-                        .WithMany("FitnessPlanDetails")
+                        .WithMany()
                         .HasForeignKey("FitnessPlanID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -392,21 +402,6 @@ namespace FitnessAndNutritionApp.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
-                });
-
-            modelBuilder.Entity("FitnessPlanDetailExercise", b =>
-                {
-                    b.HasOne("FitnessAndNutritionApp.Models.Exercise", null)
-                        .WithMany()
-                        .HasForeignKey("ExerciseID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("FitnessAndNutritionApp.Models.FitnessPlanDetail", null)
-                        .WithMany()
-                        .HasForeignKey("FitnessDetailID")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -458,11 +453,6 @@ namespace FitnessAndNutritionApp.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
-
-            modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlan", b =>
-                {
-                    b.Navigation("FitnessPlanDetails");
                 });
 #pragma warning restore 612, 618
         }

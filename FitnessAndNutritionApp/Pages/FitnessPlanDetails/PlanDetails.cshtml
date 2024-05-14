@@ -4,23 +4,61 @@
     Layout = "_Layout";
 }
 
-<h1>Plan Details</h1>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Details - NutriFit</title>
+    <link href="~/css/PlanDetails/Fitness/planDetails.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <h1>Plan Details</h1>
+        <form method="get" id="dayForm">
+            <div class="week-bar">
+                <button type="button" class="day-button" onclick="submitDay('Monday')">Monday</button>
+                <button type="button" class="day-button" onclick="submitDay('Tuesday')">Tuesday</button>
+                <button type="button" class="day-button" onclick="submitDay('Wednesday')">Wednesday</button>
+                <button type="button" class="day-button" onclick="submitDay('Thursday')">Thursday</button>
+                <button type="button" class="day-button" onclick="submitDay('Friday')">Friday</button>
+            </div>
+            <input type="hidden" name="SelectedDay" id="selectedDayInput">
+        </form>
+        <!-- Display the exercises for the selected day -->
+        <div class="plan-content">
+            <h2>Exercises for @Model.SelectedDay</h2>
+            @if (Model.ExercisesForDay != null && Model.ExercisesForDay.Count > 0)
+            {
+                <div class="exercise-container">
+                    @foreach (var exercise in Model.ExercisesForDay)
+                    {
+                        <div class="exercise-card">
+                            <img src="@exercise.VideoURL" alt="Exercise GIF">
+                            <h3>@exercise.Name</h3>
+                        </div>
+                    }
+                    @if (Model.ExercisesForDay.Count == 5)
+                    {
+                        <div class="exercise-card last-row">
+                            <img src="@Model.ExercisesForDay[4].VideoURL" alt="Exercise GIF">
+                            <h3>@Model.ExercisesForDay[4].Name</h3>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No exercises available for @Model.SelectedDay.</p>
+            }
+        </div>
+        <div class="bottom-border"></div>
+    </div>
+    <script>
+        function submitDay(day) {
+            document.getElementById('selectedDayInput').value = day;
+            document.getElementById('dayForm').submit();
+        }
+    </script>
+</body>
+</html>

@@ -30,4 +30,9 @@
     <PackageReference Include="MimeKit" Version="4.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\resources\PlanDetails\Fitness\images\" />
+    <Folder Include="wwwroot\resources\PlanDetails\Fitness\gifs\" />
+  </ItemGroup>
+
 </Project>
