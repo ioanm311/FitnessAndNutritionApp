@@ -1,0 +1,48 @@
+﻿.content-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Ajustează înălțimea pentru a centra vertical */
+    padding: 20px;
+}
+
+.background-section {
+    display: none; /* Ascunde secțiunea de fundal nedorită */
+}
+
+.content-section {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+h2.text-center {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+p.text-center {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #6c757d; /* Culoare text secundar */
+}
+
+a.btn.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #000; /* Negru */
+    border: none;
+    border-radius: 30px; /* Rotunjirea colțurilor */
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+    a.btn.btn-primary:hover {
+        background-color: #333; /* Negru mai deschis pentru hover */
+    }

@@ -42,7 +42,5 @@ namespace FitnessAndNutritionApp.Pages.FitnessPlanDetails
                 }
             }
         }
-
-
     }
 }

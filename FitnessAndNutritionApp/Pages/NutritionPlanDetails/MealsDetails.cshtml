@@ -1,0 +1,35 @@
+﻿@page "{id:int}"
+@model FitnessAndNutritionApp.Pages.NutritionPlanDetails.MealsDetailsModel
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Meal.Name - Details</title>
+    <link href="~/css/PlanDetails/Nutrition/meal.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="meal-content-container">
+        <h1 class="centered-heading">@Model.Meal.Name</h1>
+        <div class="meal-details">
+            <div class="meal-image-container">
+                <img class="meal-image" src="@Model.Meal.ImageURL" alt="@Model.Meal.Name" />
+            </div>
+            <div class="meal-ingredients-container">
+                <h2>Ingredients</h2>
+                <div class="horizontal-scroll">
+                    <p class="meal-ingredients">@Model.Meal.Description</p>
+                </div>
+            </div>
+        </div>
+        <div class="meal-preparation-container">
+            <h2>Preparation</h2>
+            <p class="meal-preparation">@Model.Meal.Preparation</p>
+        </div>
+    </div>
+</body>
+</html>

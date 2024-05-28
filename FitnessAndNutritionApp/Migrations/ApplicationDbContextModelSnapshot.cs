@@ -109,6 +109,43 @@ namespace FitnessAndNutritionApp.Migrations
                     b.ToTable("FitnessPlanDetails");
                 });
 
+            modelBuilder.Entity("FitnessAndNutritionApp.Models.Meal", b =>
+                {
+                    b.Property<int>("MealID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MealID"));
+
+                    b.Property<string>("DayOfWeek")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ImageURL")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PlanType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Preparation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MealID");
+
+                    b.ToTable("Meals");
+                });
+
             modelBuilder.Entity("FitnessAndNutritionApp.Models.NutritionPlan", b =>
                 {
                     b.Property<int>("NutritionPlanID")
@@ -135,6 +172,28 @@ namespace FitnessAndNutritionApp.Migrations
                     b.HasIndex("UserID");
 
                     b.ToTable("NutritionPlans");
+                });
+
+            modelBuilder.Entity("FitnessAndNutritionApp.Models.NutritionPlanDetail", b =>
+                {
+                    b.Property<int>("NutritionDetailID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NutritionDetailID"));
+
+                    b.Property<string>("Day")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NutritionPlanID")
+                        .HasColumnType("int");
+
+                    b.HasKey("NutritionDetailID");
+
+                    b.HasIndex("NutritionPlanID");
+
+                    b.ToTable("NutritionPlanDetails");
                 });
 
             modelBuilder.Entity("FitnessAndNutritionApp.Models.Role", b =>
@@ -361,6 +420,21 @@ namespace FitnessAndNutritionApp.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("NutritionPlanDetailMeal", b =>
+                {
+                    b.Property<int>("MealID")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NutritionDetailID")
+                        .HasColumnType("int");
+
+                    b.HasKey("MealID", "NutritionDetailID");
+
+                    b.HasIndex("NutritionDetailID");
+
+                    b.ToTable("NutritionPlanDetailMeal");
+                });
+
             modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlan", b =>
                 {
                     b.HasOne("FitnessAndNutritionApp.Models.User", "User")
@@ -392,6 +466,17 @@ namespace FitnessAndNutritionApp.Migrations
                         .IsRequired();
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("FitnessAndNutritionApp.Models.NutritionPlanDetail", b =>
+                {
+                    b.HasOne("FitnessAndNutritionApp.Models.NutritionPlan", "NutritionPlan")
+                        .WithMany("NutritionPlanDetails")
+                        .HasForeignKey("NutritionPlanID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("NutritionPlan");
                 });
 
             modelBuilder.Entity("FitnessPlanDetailExercise", b =>
@@ -460,9 +545,29 @@ namespace FitnessAndNutritionApp.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("NutritionPlanDetailMeal", b =>
+                {
+                    b.HasOne("FitnessAndNutritionApp.Models.Meal", null)
+                        .WithMany()
+                        .HasForeignKey("MealID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("FitnessAndNutritionApp.Models.NutritionPlanDetail", null)
+                        .WithMany()
+                        .HasForeignKey("NutritionDetailID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("FitnessAndNutritionApp.Models.FitnessPlan", b =>
                 {
                     b.Navigation("FitnessPlanDetails");
+                });
+
+            modelBuilder.Entity("FitnessAndNutritionApp.Models.NutritionPlan", b =>
+                {
+                    b.Navigation("NutritionPlanDetails");
                 });
 #pragma warning restore 612, 618
         }

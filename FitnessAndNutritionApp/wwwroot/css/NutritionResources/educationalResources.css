@@ -1,0 +1,157 @@
+﻿.content-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 120px;
+}
+
+.nutrition-info {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 80px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+    .nutrition-info img {
+        max-width: 700px;
+        margin-right: 40px;
+    }
+
+.nutrition-text {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+    .nutrition-text h2 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .nutrition-text p {
+        font-size: 18px;
+        margin-bottom: 10px;
+        text-align: justify;
+    }
+
+    .nutrition-text ul {
+        list-style-type: disc;
+        margin-left: 20px;
+        font-size: 18px;
+        text-align: justify;
+    }
+
+.calorie-calculator {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #4a6f91; 
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #2a4d69; 
+}
+
+    .calorie-calculator h3 {
+        text-align: center;
+        font-size: 24px;
+        color: #fff;
+    }
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 16px;
+        color: #fff;
+    }
+
+    .form-group input,
+    .form-group select {
+        width: 100%;
+        padding: 10px;
+        font-size: 16px;
+        box-sizing: border-box;
+        border: 1px solid #4a6f91;
+        border-radius: 4px;
+        background-color: #fff;
+    }
+
+.button-primary {
+    display: block;
+    width: 50%;
+    padding: 15px;
+    background-color: #4a6f91; 
+    color: #fff;
+    border: none;
+    border-radius: 50px; 
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    margin: 20px auto; 
+    transition: background-color 0.3s ease;
+}
+
+    .button-primary:hover {
+        background-color: #5b7d99; 
+    }
+
+.calculation-results {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+}
+
+@media (max-width: 1111px) {
+    .content-container {
+        margin: 60px;
+    }
+
+    .nutrition-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .nutrition-info img {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+
+    .nutrition-text {
+        align-items: center;
+    }
+
+    .calorie-calculator {
+        width: 90%;
+    }
+}
+
+@media (max-width: 770px) {
+    .content-container {
+        margin: 30px;
+    }
+
+    .nutrition-info {
+        flex-direction: column;
+        align-items: center;
+    }
+
+        .nutrition-info img {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+    .calorie-calculator {
+        width: 100%;
+    }
+
+    .button-primary {
+        width: 80%;
+    }
+}

@@ -31,6 +31,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\resources\Home\" />
     <Folder Include="wwwroot\resources\PlanDetails\Fitness\images\" />
     <Folder Include="wwwroot\resources\PlanDetails\Fitness\gifs\" />
   </ItemGroup>

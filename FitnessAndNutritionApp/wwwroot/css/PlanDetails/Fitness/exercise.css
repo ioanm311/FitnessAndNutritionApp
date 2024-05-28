@@ -1,0 +1,146 @@
+﻿.exercise-content-container {
+    font-family: Arial, sans-serif;
+    width: 80%;
+    margin: auto;
+    padding-top: 140px; /* A fost modificat pentru a evita suprapunerea cu navbarul */
+    text-align: center;
+}
+
+    .exercise-content-container h1 {
+        font-size: 2.5em;
+        margin-bottom: 60px;
+    }
+
+.exercise-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.exercise-gif {
+    width: 30%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Adaugă spațiu între GIF și text */
+}
+
+.exercise-description-container {
+    width: 55%;
+    margin-right: 140px;
+}
+
+.exercise-description {
+    font-size: 1.4em; /* Text mai mare */
+    line-height: 1.8; /* Mai mult spațiu între linii */
+    margin-bottom: 10px; /* Spațiu între descriere și notă */
+    text-align: justify; /* Aliniere justify */
+}
+
+.exercise-note {
+    font-size: 1.4em; /* Mărime text */
+    line-height: 1.5; /* Spațiere între linii */
+    text-align: left;
+    margin-top: 10px;
+    list-style-type: disc;
+}
+
+.exercise-info-container {
+    border: 1px solid #ddd; /* Adaugă o margine subțire */
+    padding: 40px; /* Adaugă padding */
+    margin-bottom: 40px; /* Adaugă spațiu între container și footer */
+}
+
+.muscles-worked-title {
+    font-size: 2em;
+    margin: 20px 0; /* Modifică marginea */
+}
+
+.exercise-image-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.exercise-image {
+    width: 60%;
+    height: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.muscles-list {
+    width: 35%;
+    font-size: 1.7em;
+    line-height: 1.7;
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+@media (max-width: 1111px) {
+    .exercise-details {
+        flex-direction: column;
+    }
+
+    .exercise-gif {
+        width: 50%;
+    }
+
+    .exercise-description-container {
+        width: 100%;
+        margin-right: 0;
+    }
+
+    .exercise-image {
+        width: 80%;
+    }
+
+    .muscles-list {
+        width: 100%;
+        font-size: 1.5em;
+    }
+}
+
+/* Media Queries pentru ecrane de 770px */
+@media (max-width: 770px) {
+    .exercise-content-container {
+        width: 95%;
+        padding-top: 100px;
+    }
+
+        .exercise-content-container h1 {
+            font-size: 2em;
+        }
+
+    .exercise-gif {
+        width: 80%;
+    }
+
+    .exercise-description {
+        font-size: 1.2em;
+    }
+
+    .exercise-note {
+        font-size: 1.2em;
+    }
+
+    .exercise-info-container {
+        padding: 20px;
+    }
+
+    .exercise-image {
+        width: 100%;
+    }
+
+    .muscles-list {
+        width: 100%;
+        font-size: 1.2em;
+    }
+}

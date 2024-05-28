@@ -1,0 +1,159 @@
+﻿/* Adjust the content container to keep spacing */
+.content-container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+    padding-top: 100px; /* Padding to push content below the navbar */
+    padding-bottom: 20px; /* Space between the container and footer */
+}
+
+/* Remove border-bottom from the week bar */
+.week-bar {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+    position: -webkit-sticky; /* For Safari */
+    position: sticky;
+    top: 100px; /* Adjust to be below the navbar */
+    background-color: white;
+    padding: 10px 0;
+}
+
+.content-container h1 {
+    margin-top: 10px; /* Reduce top margin */
+    margin-bottom: -10px; /* Reduce bottom margin */
+}
+
+/* Styling day buttons */
+.day-button {
+    flex-grow: 1;
+    padding: 10px 15px;
+    border: 1px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    background: hsl(220, 48%, 28%); /* Gradient de fundal */
+    color: white;
+    border-radius: 25px; /* Colțuri rotunjite */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Umbră */
+    transition: background 0.3s, transform 0.3s; /* Tranziție pentru efecte */
+}
+
+    .day-button:hover {
+        background: hsl(220, 68%, 54%); /* Gradient inversat pentru hover */
+        transform: scale(1.05); /* Efect de mărire la hover */
+    }
+
+/* Styling plan content */
+.plan-content {
+    padding: 25px;
+    border: 1px solid #ccc;
+    margin-top: 20px;
+    overflow: auto;
+}
+
+/* Adjust exercise container to maintain spacing */
+.meal-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.meal-card {
+    flex: 1 1 calc(50% - 10px);
+    margin-top: 40px; /* Add vertical margin for spacing */
+    margin-bottom: 40px; /* Add vertical margin for spacing */
+    text-align: center;
+}
+
+    .meal-card img {
+        width: 100%;
+        max-width: 500px;
+        height: auto;
+    }
+
+    .meal-card a {
+        color: inherit; /* Păstrează culoarea textului */
+        text-decoration: none; /* Elimină sublinierea implicită */
+    }
+
+        .meal-card a:hover {
+            color: inherit; /* Păstrează culoarea textului la hover */
+        }
+
+
+/* Styling last row of exercise cards */
+.last-row {
+    display: flex;
+    justify-content: center;
+}
+
+/* Adjust bottom border to remove the line but maintain spacing */
+.bottom-border {
+    margin-top: 20px;
+    padding-top: 20px;
+    width: 100%; /* Ensure it takes full width */
+}
+
+/* Media Queries for Responsive Design */
+
+/* For screens with a max width of 1111px */
+@media (max-width: 1111px) {
+    .content-container {
+        width: 90%;
+        padding-top: 80px;
+        padding-bottom: 15px;
+    }
+
+    .week-bar {
+        flex-direction: column;
+    }
+
+    .day-button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .meal-card {
+        flex: 1 1 calc(100% - 10px);
+    }
+
+        .meal-card img {
+            max-width: 500px;
+        }
+}
+
+/* For screens with a max width of 770px */
+@media (max-width: 770px) {
+    .content-container {
+        width: 95%;
+        padding-top: 60px;
+        padding-bottom: 10px;
+    }
+
+    .week-bar {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .day-button {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
+    .plan-content {
+        margin-top: 10px;
+    }
+
+    .meal-container {
+        flex-direction: column;
+    }
+
+    .meal-card {
+        margin: 10px auto;
+        flex: none;
+    }
+
+        .meal-card img {
+            max-width: 100%;
+        }
+}

@@ -1,0 +1,27 @@
+﻿@page
+@model FitnessAndNutritionApp.Pages.LoginPrompt.LoginPromptModel
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Please Log In - NutriFit</title>
+    <link href="~/css/Authentication/loginError.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <div class="background-section"></div>
+        <div class="content-section">
+            <h2 class="text-center">Please Log In</h2>
+            <p class="text-center">You need to be logged in to access this page.</p>
+            <div class="text-center">
+                <a href="/Auth/Login" class="btn btn-primary">Go to Login Page</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

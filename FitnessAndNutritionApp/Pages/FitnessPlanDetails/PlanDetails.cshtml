@@ -34,15 +34,10 @@
                     @foreach (var exercise in Model.ExercisesForDay)
                     {
                         <div class="exercise-card">
-                            <img src="@exercise.VideoURL" alt="Exercise GIF">
-                            <h3>@exercise.Name</h3>
-                        </div>
-                    }
-                    @if (Model.ExercisesForDay.Count == 5)
-                    {
-                        <div class="exercise-card last-row">
-                            <img src="@Model.ExercisesForDay[4].VideoURL" alt="Exercise GIF">
-                            <h3>@Model.ExercisesForDay[4].Name</h3>
+                            <a href="/FitnessPlanDetails/ExerciseDetails/@exercise.ExerciseID">
+                                <img src="@exercise.VideoURL" alt="Exercise GIF">
+                                <h3>@exercise.Name</h3>
+                            </a>
                         </div>
                     }
                 </div>

@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace FitnessAndNutritionApp.Pages.Fitness
 {
-    [Authorize]
+   
     public class ChoosePlanModel : BasePageModel  // Moștenirea de la BasePageModel
     {
         private readonly ApplicationDbContext _context;
@@ -18,6 +18,15 @@ namespace FitnessAndNutritionApp.Pages.Fitness
             : base(userManager)  // Apelează constructorul din BasePageModel
         {
             _context = context;
+        }
+
+        public IActionResult OnGet()
+        {
+            if (!User.Identity.IsAuthenticated)
+            {
+                return RedirectToPage("/LoginPromptError/LoginPrompt");
+            }
+            return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(string planChoice)

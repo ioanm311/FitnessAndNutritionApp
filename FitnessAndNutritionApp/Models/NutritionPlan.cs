@@ -17,6 +17,9 @@ namespace FitnessAndNutritionApp.Models
 
         public bool IsActive { get; set; } 
         [DataType(DataType.Date)]
-        public DateTime LastResetDate { get; set; } 
+        public DateTime LastResetDate { get; set; }
+
+        public List<NutritionPlanDetail> NutritionPlanDetails { get; set; }
+
     }
 }

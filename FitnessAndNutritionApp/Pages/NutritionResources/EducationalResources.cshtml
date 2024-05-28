@@ -1,0 +1,80 @@
+﻿@page
+@model FitnessAndNutritionApp.Pages.NutritionResources.EducationalResourcesModel
+@{
+    Layout = "_Layout";
+}
+@using FitnessAndNutritionApp.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources - Nutrition</title>
+    <link href="~/css/NutritionResources/educationalResources.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <div class="nutrition-info">
+            <img src="~/resources/PlanDetails/Nutrition/Piramida_alimentelor.jpg" alt="Food Pyramid" class="img-fluid" />
+            <div class="nutrition-text">
+                <h2>Educational Resources - Nutrition</h2>
+                <p>The food pyramid is a visual representation of the optimal quantity of different food types that a person should consume each day to maintain a healthy diet. Here are some key points about the food pyramid:</p>
+                <ul>
+                    <li>The base of the pyramid includes foods that should be eaten in the largest quantities, such as bread, pasta, rice, and other whole grains.</li>
+                    <li>Above the base, the pyramid suggests consuming vegetables and fruits in generous amounts.</li>
+                    <li>Dairy products like milk, cheese, and yogurt, as well as proteins such as meat, fish, beans, and nuts, should be consumed in moderate amounts.</li>
+                    <li>At the top of the pyramid, foods that should be eaten sparingly include fats, oils, and sweets.</li>
+                    <li>The pyramid helps in planning balanced meals and ensuring that all essential nutrients are included in the diet.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="calorie-calculator">
+            <h3 class="text-center">Calorie Calculator</h3>
+            <form method="post">
+                <div class="form-group">
+                    <label for="Gender">Gender:</label>
+                    <select asp-for="CalorieCalculator.Gender" class="form-control">
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="Weight">Weight (kg):</label>
+                    <input asp-for="CalorieCalculator.Weight" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Height">Height (cm):</label>
+                    <input asp-for="CalorieCalculator.Height" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="Age">Age:</label>
+                    <input asp-for="CalorieCalculator.Age" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label for="ActivityLevel">Activity Level:</label>
+                    <select asp-for="CalorieCalculator.ActivityLevel" class="form-control">
+                        <option value="Sedentary">Sedentary</option>
+                        <option value="LightlyActive">Lightly Active</option>
+                        <option value="ModeratelyActive">Moderately Active</option>
+                        <option value="VeryActive">Very Active</option>
+                        <option value="SuperActive">Super Active</option>
+                    </select>
+                </div>
+                <button type="submit" class="button-primary">Calculate</button>
+            </form>
+
+            @if (Model.CalorieCalculator != null)
+            {
+                <div class="calculation-results">
+                    <h4>Results:</h4>
+                    <p>Basal Metabolic Rate (BMR): @Model.CalorieCalculator.BMR</p>
+                    <p>Daily Caloric Needs: @Model.CalorieCalculator.DailyCalorieNeeds</p>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

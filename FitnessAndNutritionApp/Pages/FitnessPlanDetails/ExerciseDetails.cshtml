@@ -1,0 +1,39 @@
+﻿@page "{id:int}"
+@model FitnessAndNutritionApp.Pages.FitnessPlanDetails.ExerciseDetailsModel
+@{
+    Layout = "_Layout";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@Model.Exercise.Name - Details</title>
+    <link href="~/css/PlanDetails/Fitness/exercise.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="exercise-content-container">
+        <h1>@Model.Exercise.Name</h1>
+        <div class="exercise-details">
+            <img class="exercise-gif" src="@Model.Exercise.VideoURL" alt="@Model.Exercise.Name" />
+            <div class="exercise-description-container">
+                <p class="exercise-description">@Model.Exercise.Description</p>
+                <ul class="exercise-note">
+                    <li><b>Take a one-minute break between each set.</b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="exercise-info-container">
+            <h2 class="muscles-worked-title">Muscles Targeted in This Exercise</h2>
+            <div class="exercise-image-container">
+                <img class="exercise-image" src="@Model.Exercise.ImageURL" alt="@Model.Exercise.Name" />
+                <ul class="muscles-list">
+                    <li>Main muscle group targeted</li>
+                    <li>Secondary muscles involved</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

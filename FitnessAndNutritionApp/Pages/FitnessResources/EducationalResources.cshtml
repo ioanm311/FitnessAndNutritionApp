@@ -1,0 +1,70 @@
+﻿@page
+@model FitnessAndNutritionApp.Pages.FitnessResources.EducationalResourcesModel
+@{
+    Layout = "_Layout";
+}
+@using FitnessAndNutritionApp.Models
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Resources - Fitness</title>
+    <link href="~/css/FitnessResources/educationalResources.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <div class="fitness-info">
+            <div class="fitness-text">
+                <h2>Educational Resources - Fitness</h2>
+                <h3>Understanding Muscle Hypertrophy</h3>
+                <p>
+                    Muscle hypertrophy is the process by which muscle size increases. This occurs when a person challenges their muscles with higher levels of resistance or weight, causing the muscle fibers to sustain damage. The body repairs these damaged fibers by fusing them, leading to an increase in muscle mass and size.
+                </p>
+
+                <h3>Strength and Resistance Training</h3>
+                <p>
+                    Strength and resistance training are essential for releasing growth hormones and testosterone, which improve muscle sensitivity to these hormones. Activities such as lifting free weights, using weight machines, resistance band exercises, and body weight exercises like pushups and squats are effective for muscle strengthening.
+                </p>
+
+                <h3>Factors Influencing Muscle Growth</h3>
+                <p>
+                    Muscle growth rates vary based on age, sex, and genetics. Both males and females can build muscle effectively, but the rate and approach may differ due to body types:
+                    <ul>
+                        <li><strong>Mesomorphic</strong>: Naturally muscular, gains muscle quickly.</li>
+                        <li><strong>Ectomorphic</strong>: Slim, builds muscle slowly but can increase strength.</li>
+                        <li><strong>Endomorphic</strong>: Rounded, builds muscle effectively through strength training.</li>
+                    </ul>
+                </p>
+
+                <h3>Exercise and Aging</h3>
+                <p>
+                    Strength training is beneficial for older adults to prevent skeletal and muscular problems. Maintaining physical activity within personal limitations is crucial for older adults to aid recovery and prevent injury.
+                </p>
+
+                <h3>Cardiovascular Activity</h3>
+                <p>
+                    Cardio, or aerobic activity, supports heart and respiratory health and can aid in muscle growth when performed consistently. Adults should aim for 150 minutes of moderate or 75 minutes of vigorous aerobic activity weekly.
+                </p>
+
+                <h3>Importance of Rest</h3>
+                <p>
+                    Rest is integral to muscle building. Sufficient rest allows muscle groups to repair and grow. It's recommended not to train the same muscle group on consecutive days. Adequate sleep is also essential for muscle recovery and growth, as sleep debt can decrease protein synthesis and increase cortisol, a stress hormone.
+                </p>
+            </div>
+            <div class="fitness-image">
+                <img src="~/resources/PlanDetails/Fitness/muscle.jpg" alt="Muscle Anatomy" class="img-fluid" />
+            </div>
+        </div>
+        <div class="video-section">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/TN29zjT3tcY?si=j1NKlIg-LR57e1qn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <div class="video-text">
+                <h4>Between Legends</h4>
+                <p class="quote">"I do the same exercises I did 50 years ago and they still work. I eat the same food I ate 50 years ago and it still works." - Arnold Schwarzenegger</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -4,23 +4,58 @@
     Layout = "_Layout";
 }
 
-<h1>Plan Details</h1>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
-<p>This is your plan details page.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan Details - NutriFit</title>
+    <link href="~/css/PlanDetails/Nutrition/planDetails.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="content-container">
+        <h1>Plan Details</h1>
+        <form method="get" id="dayForm">
+            <div class="week-bar">
+                <button type="button" class="day-button" onclick="submitDay('Monday')">Monday</button>
+                <button type="button" class="day-button" onclick="submitDay('Tuesday')">Tuesday</button>
+                <button type="button" class="day-button" onclick="submitDay('Wednesday')">Wednesday</button>
+                <button type="button" class="day-button" onclick="submitDay('Thursday')">Thursday</button>
+                <button type="button" class="day-button" onclick="submitDay('Friday')">Friday</button>
+                <button type="button" class="day-button" onclick="submitDay('Saturday')">Saturday</button>
+                <button type="button" class="day-button" onclick="submitDay('Sunday')">Sunday</button>
+            </div>
+            <input type="hidden" name="SelectedDay" id="selectedDayInput">
+        </form>
+        <!-- Display the meals for the selected day -->
+        <div class="plan-content">
+            <h2>Meals for @Model.SelectedDay</h2>
+            @if (Model.MealsForDay != null && Model.MealsForDay.Count > 0)
+            {
+                <div class="meal-container">
+                    @foreach (var meal in Model.MealsForDay)
+                    {
+                        <div class="meal-card">
+                            <a href="/NutritionPlanDetails/MealsDetails/@meal.MealID">
+                                <img src="@meal.ImageURL" alt="Meal Image">
+                                <h3>@meal.Name</h3>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                <p>No meals available for @Model.SelectedDay.</p>
+            }
+        </div>
+        <div class="bottom-border"></div>
+    </div>
+    <script>
+        function submitDay(day) {
+            document.getElementById('selectedDayInput').value = day;
+            document.getElementById('dayForm').submit();
+        }
+    </script>
+</body>
+</html>
