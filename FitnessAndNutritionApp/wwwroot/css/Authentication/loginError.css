@@ -3,12 +3,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Ajustează înălțimea pentru a centra vertical */
+    min-height: 80vh; 
     padding: 20px;
 }
 
 .background-section {
-    display: none; /* Ascunde secțiunea de fundal nedorită */
+    display: none; 
 }
 
 .content-section {
@@ -28,7 +28,7 @@ h2.text-center {
 p.text-center {
     margin-bottom: 20px;
     font-size: 16px;
-    color: #6c757d; /* Culoare text secundar */
+    color: #6c757d; 
 }
 
 a.btn.btn-primary {
@@ -36,13 +36,13 @@ a.btn.btn-primary {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #000; /* Negru */
+    background-color: #000; 
     border: none;
-    border-radius: 30px; /* Rotunjirea colțurilor */
+    border-radius: 30px; 
     text-decoration: none;
     transition: background-color 0.3s ease;
 }
 
     a.btn.btn-primary:hover {
-        background-color: #333; /* Negru mai deschis pentru hover */
+        background-color: #333; 
     }

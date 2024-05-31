@@ -11,7 +11,7 @@ namespace FitnessAndNutritionApp.Pages.NutritionResources
     {
         private readonly ApplicationDbContext _context;
         public EducationalResourcesModel(ApplicationDbContext context, UserManager<User> userManager)
-            : base(userManager)  // Call constructor from BasePageModel
+            : base(userManager)  
         {
             _context = context;
         }

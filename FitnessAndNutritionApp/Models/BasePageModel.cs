@@ -20,15 +20,12 @@ namespace FitnessAndNutritionApp.Models
                 var user = await _userManager.GetUserAsync(User);
                 if (user != null)
                 {
-                    // Verifică dacă utilizatorul este admin
                     var isAdmin = await _userManager.IsInRoleAsync(user, "Admin");
 
-                    // Setează numele pentru utilizator în funcție de rol
+                    // Seteaza numele pentru utilizator in functie de rol
                     ViewData["DisplayName"] = isAdmin ? user.LastName : user.FirstName;
                 }
             }
-
-            // Nu uita să apelezi metoda next pentru a continua execuția lanțului de Page Handlers.
             await next();
         }
     }

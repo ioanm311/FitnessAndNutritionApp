@@ -14,12 +14,10 @@ namespace FitnessAndNutritionApp.Pages.Auth
     public class ResetPasswordModel : PageModel
     {
         private readonly UserManager<User> _userManager;
-        //private readonly ITokenService _tokenService; // Nu mai este necesar în această implementare, dar poate fi folosit în alte scopuri
 
         public ResetPasswordModel(UserManager<User> userManager)
         {
             _userManager = userManager;
-            //_tokenService = tokenService; // Injectează ITokenService
         }
 
         [BindProperty]
@@ -37,7 +35,7 @@ namespace FitnessAndNutritionApp.Pages.Auth
         public string ConfirmPassword { get; set; }
 
         [BindProperty]
-        public string Token { get; set; } // Schimbat de la Code la Token pentru claritate
+        public string Token { get; set; }
 
         public IActionResult OnGet(string userId, string token, string email)
         {
@@ -46,7 +44,6 @@ namespace FitnessAndNutritionApp.Pages.Auth
 
             if (string.IsNullOrEmpty(Token) || string.IsNullOrEmpty(Email))
             {
-                // Redirect sau afișează o eroare
                 return RedirectToPage("/Index");
             }
 
@@ -68,7 +65,6 @@ namespace FitnessAndNutritionApp.Pages.Auth
             }
             var decodedToken = Encoding.UTF8.GetString(WebEncoders.Base64UrlDecode(Token));
 
-            // Înlocuiește apelul UserManager cu funcția manuală și folosește tokenul decodificat
             var result = await ManualResetPasswordAsync(user, decodedToken, Password);
             if (result.Succeeded)
             {
@@ -85,7 +81,7 @@ namespace FitnessAndNutritionApp.Pages.Auth
 
         private async Task<IdentityResult> ManualResetPasswordAsync(User user, string token, string newPassword)
         {
-            // Aici verifici token-ul și parola manual
+            // Aici se verifica token-ul si parola manual
             if (!await _userManager.VerifyUserTokenAsync(user, _userManager.Options.Tokens.PasswordResetTokenProvider, "ResetPassword", token))
             {
                 return IdentityResult.Failed(new IdentityError { Description = "Invalid token." });

@@ -2,8 +2,8 @@
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Păstrăm același font */
-    background: #fff; /* Background alb */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    background: #fff; 
 }
 
 .form-title {
@@ -35,10 +35,10 @@
 .signup-form {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Elementele într-o coloană */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    padding: 60px 0; /* Padding pentru centrare */
+    padding: 60px 0; 
     margin-top: -100px;
 }
 
@@ -50,31 +50,31 @@
 }
 
 form {
-    box-shadow: none; /* Fără umbră */
-    border: none; /* Fără bordură */
+    box-shadow: none; 
+    border: none;
     padding: 40px;
-    background: #ffffff; /* Background alb */
-    width: 60%; /* Lățime ajustată */
-    max-width: 500px; /* Lățime maximă */
-    margin-top: -50px; /* Ajustare poziție verticală */
+    background: #ffffff; 
+    width: 60%; 
+    max-width: 500px;
+    margin-top: -50px; 
 }
 
 .form-group {
-    margin-bottom: 20px; /* Spațiere între câmpuri */
+    margin-bottom: 20px; 
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #333; /* Culoare text */
+    color: #333; 
 }
 
 input[type="email"],
 input[type="password"],
-input[type="text"] { /* Adăugăm input de tip text pentru nume și prenume */
+input[type="text"] { 
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px; /* Spațiere */
+    margin-bottom: 10px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
@@ -86,8 +86,8 @@ button[type="submit"] {
     margin-top: 10px;
     border: none;
     border-radius: 20px;
-    background-color: #000; /* Buton negru */
-    color: #fff; /* Text alb */
+    background-color: #000; 
+    color: #fff; 
     font-size: 16px;
     cursor: pointer;
     font-weight: bold;
@@ -96,11 +96,11 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #444; /* Culoare mai închisă la hover */
+    background-color: #444; 
  }
 
 .text-danger {
-    color: #ff3860; /* Roșu pentru erori */
+    color: #ff3860;
 }
 
 @media (max-width: 1111px) {

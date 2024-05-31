@@ -10,12 +10,12 @@ using System.Linq;
 namespace FitnessAndNutritionApp.Pages.Fitness
 {
    
-    public class ChoosePlanModel : BasePageModel  // Moștenirea de la BasePageModel
+    public class ChoosePlanModel : BasePageModel  
     {
         private readonly ApplicationDbContext _context;
 
         public ChoosePlanModel(ApplicationDbContext context, UserManager<User> userManager)
-            : base(userManager)  // Apelează constructorul din BasePageModel
+            : base(userManager)  
         {
             _context = context;
         }

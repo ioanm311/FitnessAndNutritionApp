@@ -13,13 +13,13 @@ namespace FitnessAndNutritionApp.DAL
 
         private static async Task EnsureRolesAsync(RoleManager<Role> roleManager)
         {
-            // Asigură-te că rolul Admin există
+            // rolul Admin exista
             if (!await roleManager.RoleExistsAsync("Admin"))
             {
                 await roleManager.CreateAsync(new Role { Name = "Admin" });
             }
 
-            // Asigură-te că rolul User există
+            // rolul User exista
             if (!await roleManager.RoleExistsAsync("User"))
             {
                 await roleManager.CreateAsync(new Role { Name = "User" });
@@ -40,14 +40,13 @@ namespace FitnessAndNutritionApp.DAL
                 throw new Exception("Admin password not found in environment variables.");
             }
 
-            // Asigură-te că rolul Admin există
+            // rolul Admin exista
             if (!await roleManager.RoleExistsAsync("Admin"))
             {
                 var role = new Role { Name = "Admin" };
                 await roleManager.CreateAsync(role);
             }
 
-            // Verifică dacă utilizatorul Admin există
             var adminUser = await userManager.FindByEmailAsync(adminEmail);
             if (adminUser == null)
             {
@@ -55,8 +54,8 @@ namespace FitnessAndNutritionApp.DAL
                 {
                     UserName = adminEmail,
                     Email = adminEmail,
-                    FirstName = "Admin", // Asigură-te că acest câmp este setat cu o valoare adecvată
-                    LastName = "Administrator" // Dacă și LastName este obligatoriu, setează și acest câmp
+                    FirstName = "Admin", 
+                    LastName = "Administrator" 
                 };
                 var result = await userManager.CreateAsync(adminUser, adminPassword);
                 if (result.Succeeded)

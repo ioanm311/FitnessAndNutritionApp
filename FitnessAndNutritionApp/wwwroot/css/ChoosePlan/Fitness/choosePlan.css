@@ -1,17 +1,17 @@
 ﻿.content-container {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Împarte containerul în două coloane egale */
-    min-height: 100vh; /* Asigură că containerul ocupă întreaga înălțime a viewport-ului */
-    max-width: 100%; /* Extinde lățimea la maxim posibil */
-    margin: 0 auto; /* Centrarea containerului */
-    background: none; /* Elimină orice fundal existent */
+    grid-template-columns: 1fr 1fr;
+    min-height: 100vh;
+    max-width: 100%;
+    margin: 0 auto;
+    background: none;
 }
 
 .text-center {
-    width: 100%; /* Asigură că titlul este centrat pe toată lățimea secțiunii */
-    text-align: center; /* Centrarea textului */
-    margin-bottom: 50px; /* Spațiu adăugat sub titlu pentru separare */
-    margin-top: 100px; /* Mută titlul sub navbar */
+    width: 100%;
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 .background-section {
@@ -19,47 +19,46 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 100vh; /* Asigură că secțiunea de fundal are înălțimea necesară pentru a fi vizibilă */
+    min-height: 100vh;
 }
 
 .content-section {
     padding: 20px;
     display: flex;
-    flex-direction: column; /* Important pentru a alinia vertical conținutul */
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding-top: 0; /* Reduc spațiul de la partea superioară */
+    padding-top: 0;
 }
 
 .plan-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Două coloane egale */
-    grid-template-rows: auto auto; /* Două rânduri cu înălțime automată */
-    gap: 60px; /* Distanța între planuri */
-    align-items: start; /* Alinează conținutul la partea de sus a containerului */
-    justify-content: center; /* Centrează conținutul orizontal */
-    width: 80%; /* Ajustează lățimea containerului la 80% din spațiul disponibil */
-    margin: 0 auto; /* Centrarea containerului */
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto;
+    gap: 60px;
+    align-items: start;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .plan {
     text-align: center;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    width: 100%; /* Planurile ocupă întreaga lățime a coloanei */
+    width: 100%;
 }
 
-    /* Specific pentru fiecare plan */
     .plan:nth-child(1) {
-        grid-area: 1 / 1; /* Primul rând, prima coloană */
+        grid-area: 1 / 1;
     }
 
     .plan:nth-child(2) {
-        grid-area: 1 / 2; /* Primul rând, a doua coloană */
+        grid-area: 1 / 2;
     }
 
     .plan:nth-child(3) {
-        grid-area: 2 / 2; /* Al doilea rând, a doua coloană */
+        grid-area: 2 / 2;
     }
 
     .plan img {
@@ -70,30 +69,29 @@
 
 .plan-title {
     margin-top: 10px;
-    font-size: 1.5em; /* Mărește puțin dimensiunea fontului */
+    font-size: 1.5em;
 }
 
 .btn-select {
-    background-color: hsl(220, 48%, 28%); /* Culoarea de fundal */
-    color: white; /* Culoarea textului */
-    border: none; /* Bordură de aceeași culoare pentru un efect plat */
-    padding: 15px 30px; /* Padding mai mic pentru un buton mai compact */
-    margin-top: 11px; /* Spațiu deasupra butonului */
-    cursor: pointer; /* Cursor pointer pentru interactivitate */
-    font-size: 1em; /* Dimensiunea fontului mai mică pentru a se potrivi cu designul */
-    display: block; /* Afișează ca block pentru a centra butonul */
-    width: 70%; /* Lățimea butonului ajustată pentru a se centra sub descrierea planului */
-    margin-left: auto; /* Margine stânga auto pentru aliniere */
-    margin-right: auto; /* Margine dreapta auto pentru aliniere */
-    border-radius: 25px; /* Colțuri mai puțin rotunjite */
-    transition: background-color 0.3s, border-color 0.3s; /* Tranziție pentru hover */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Umbra ușoară pentru un efect 3D subtil */
+    background-color: hsl(220, 48%, 28%);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 11px;
+    cursor: pointer;
+    font-size: 1em;
+    display: block;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    transition: background-color 0.3s, border-color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.btn-select:hover {
-    background-color: #0056b3; /* Culoare mai închisă la hover */
-}
-
+    .btn-select:hover {
+        background-color: #0056b3;
+    }
 
 @media (max-width: 1111px) {
     .background-section {
@@ -102,81 +100,77 @@
 
     .content-container {
         display: grid;
-        grid-template-columns: 1fr; /* Utilizează o singură coloană pentru întregul conținut */
+        grid-template-columns: 1fr;
         min-height: 100vh;
         max-width: 100%;
-        margin: 0 auto; /* Asigură că tot conținutul este centrat */
+        margin: 0 auto;
         background: none;
-        align-items: center; /* Aliniază vertical tot conținutul în centru */
-        justify-content: center; /* Aliniază orizontal tot conținutul în centru */
+        align-items: center;
+        justify-content: center;
     }
 
     .content-section {
-        width: 100%; /* Asigură că secțiunea de conținut folosește întreaga lățime */
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Centrarea pe verticală a tuturor elementelor în secțiune */
-        justify-content: center; /* Centrarea pe orizontală a tuturor elementelor în secțiune */
-        padding: 20px; /* Spațiu adăugat pentru estetică */
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
     }
 
     .plan-container {
         display: grid;
-        grid-template-columns: repeat(3, 1fr); /* Trei coloane pentru a aranja planurile pe o singură linie */
+        grid-template-columns: repeat(3, 1fr);
         gap: 20px;
         padding: 20px;
-        width: 100%; /* Ajustat pentru a folosi 100% din lățimea disponibilă */
-        justify-content: center; /* Asigură că planurile sunt centrate orizontal */
-        align-items: center; /* Asigură că planurile sunt centrate vertical */
+        width: 100%;
+        justify-content: center;
+        align-items: center;
         margin-left: 150px;
     }
 
     .plan {
-        width: 100%; /* Ocupă toată lățimea coloanei */
-        font-size: 1.1em; 
-        padding: 20px; 
+        width: 100%;
+        font-size: 1.1em;
+        padding: 20px;
     }
 }
-
 
 @media (max-width: 770px) {
     .content-container {
         display: flex;
         flex-direction: column;
-        align-items: center; /* Asigură alinierea centrală pe axa orizontală */
-        justify-content: flex-start; /* Conținutul începe de la partea de sus a container-ului */
+        align-items: center;
+        justify-content: flex-start;
         min-height: auto;
-        width: 100%; /* Utilizează întreaga lățime */
+        width: 100%;
         margin: 0;
         padding: 0;
         background: none;
     }
 
     .content-section {
-        width: 100%; /* Lățime completă */
+        width: 100%;
         display: flex;
         flex-direction: column;
-        align-items: center; /* Asigură alinierea centrală pe axa orizontală */
-        justify-content: center; /* Asigură alinierea centrală pe axa verticală */
+        align-items: center;
+        justify-content: center;
         padding: 20px;
-        margin-bottom: 80px; /* Margin generos pentru a evita suprapunerea cu footer-ul */
+        margin-bottom: 80px;
     }
 
     .plan-container {
         display: flex;
-        flex-direction: column; /* Așează planurile vertical */
-        width: 100%; /* Lățime completă */
-        gap: 20px; /* Spațiu între planuri */
-        align-items: center; /* Asigură că fiecare plan este centrat */
-        margin-right: 140px
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+        align-items: center;
+        margin-right: 140px;
     }
 
     .plan {
-        width: 100%; /* Fiecare plan ocupă întreaga lățime */
-        padding: 20px; /* Padding interior pentru estetică */
-        margin: 0 auto; /* Asigură că planul este centrat */
+        width: 100%;
+        padding: 20px;
+        margin: 0 auto;
     }
 }
-
-
-

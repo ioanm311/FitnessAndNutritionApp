@@ -31,37 +31,36 @@ namespace FitnessAndNutritionApp.Pages.Auth
 
         public async Task<IActionResult> OnPostAsync()
         {
-            if (String.IsNullOrEmpty(Email)) // Verifică dacă câmpul de email este gol
+            if (String.IsNullOrEmpty(Email)) 
             {
-                ModelState.AddModelError(string.Empty, "Please enter your email address."); // Adaugă mesaj de eroare
+                ModelState.AddModelError(string.Empty, "Please enter your email address."); 
                 return Page();
             }
 
             var user = await _userManager.FindByEmailAsync(Email);
             if (user != null)
             {
-                // Generează tokenul folosind UserManager în loc de TokenService
+                // Generare token folosind UserManager
                 var token = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var encodedToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token)); // Encode token-ul pentru URL
 
-                // Crează URL-ul de callback pentru resetarea parolei
+                // Creare URL-ul de callback pentru resetarea parolei
                 var callbackUrl = Url.Page(
                     "/Auth/ResetPassword",
                     pageHandler: null,
                     values: new { userId = user.Id, token = encodedToken, email = user.Email },
                     protocol: Request.Scheme);
 
-                // Trimite email-ul cu link-ul de resetare a parolei
+                // Trimitere email cu link-ul de resetare a parolei
                 await _emailSender.SendEmailAsync(
                     Email,
                     "Reset Password",
                     $"Please reset your password by clicking here: <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>link</a>");
 
-                // Redirecționează utilizatorul la pagina de confirmare
                 return RedirectToPage("./ForgotPasswordConfirmation");
             }
-            // Dacă nu s-a găsit utilizatorul sau email-ul nu este confirmat, pur și simplu redirecționează la pagina de confirmare
-            // fără să dezvălui această informație pentru securitatea utilizatorului
+            // Daca nu s-a gasit utilizatorul sau email-ul nu este confirmat, pur si simplu redirectioneaza la pagina de confirmare
+            // fara a dezvalui aceasta informatie pentru securitatea utilizatorului
             return RedirectToPage("./ForgotPasswordConfirmation");
         }
     }

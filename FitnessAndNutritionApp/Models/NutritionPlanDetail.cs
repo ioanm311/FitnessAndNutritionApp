@@ -7,7 +7,7 @@ namespace FitnessAndNutritionApp.Models
     {
         public NutritionPlanDetail()
         {
-            Meals = new List<Meal>();  // Inițializează lista pentru a evita null
+            Meals = new List<Meal>();  
         }
 
         [Key]
@@ -15,11 +15,9 @@ namespace FitnessAndNutritionApp.Models
         public int NutritionPlanID { get; set; }
         public string Day { get; set; }
 
-        // Proprietate de navigație către NutritionPlan
         [ForeignKey("NutritionPlanID")]
         public NutritionPlan NutritionPlan { get; set; }
 
-        // Relație many-to-many cu Meal
         public List<Meal> Meals { get; set; }
     }
 }

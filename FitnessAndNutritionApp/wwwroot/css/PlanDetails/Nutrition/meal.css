@@ -1,52 +1,52 @@
 ﻿body {
-    padding-top: 100px; /* Ajustează valoarea pentru a lăsa spațiu sub navbar */
+    padding-top: 100px;
 }
 
 .meal-content-container {
-    max-width: 1500px; /* Mai lat decât valoarea anterioară */
+    max-width: 1500px;
     margin: 0 auto;
     padding: 20px;
-    font-size: 1.2em; /* Mărit dimensiunea fontului */
+    font-size: 1.2em;
 }
 
 .centered-heading {
     text-align: center;
-    margin-bottom: 20px; /* Adaugă spațiu sub titlu */
+    margin-bottom: 20px;
 }
 
 .meal-details {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 20px; /* Adaugă spațiu deasupra imaginii */
+    margin-top: 20px;
 }
 
 .meal-image {
     width: 100%;
     height: auto;
     border-radius: 10px;
-    margin-bottom: 20px; /* Adaugă spațiu între imagine și text */
+    margin-bottom: 20px;
 }
 
 .meal-ingredients-container {
-    flex: 1; /* Mărit pentru a face containerul mai lat */
-    white-space: normal; /* Permite textului să se încadreze pe mai multe rânduri */
-    text-align: justify; /* Aliniere justifită pentru text */
+    flex: 1;
+    white-space: normal;
+    text-align: justify;
 }
 
     .meal-ingredients-container h2,
     .meal-preparation-container h2 {
-        font-size: 2em; /* Mărit dimensiunea titlurilor */
+        font-size: 2em;
         margin-bottom: 15px;
-        color: #2b2b2b; /* Schimbă culoarea titlurilor */
+        color: #2b2b2b;
     }
 
 .meal-ingredients,
 .meal-preparation {
-    font-size: 1.3em; /* Mărit dimensiunea textului */
-    line-height: 1.8; /* Crescut înălțimea liniei pentru lizibilitate mai bună */
-    color: #4b4b4b; /* Schimbă culoarea textului */
-    text-align: justify; /* Aliniere justifită pentru text */
+    font-size: 1.3em;
+    line-height: 1.8;
+    color: #4b4b4b;
+    text-align: justify;
 }
 
 .meal-preparation-container {
@@ -59,20 +59,20 @@
     }
 
     .meal-image {
-        margin-right: 0; /* Elimină spațiul din dreapta imaginii */
-        margin-bottom: 20px; /* Adaugă spațiu sub imagine */
+        margin-right: 0;
+        margin-bottom: 20px;
     }
 
     .meal-ingredients-container {
-        max-width: 100%; /* Lățește containerul de ingrediente */
+        max-width: 100%;
     }
 }
 
-/* Media Queries pentru ecrane de 770px */
 @media (max-width: 770px) {
     body {
         padding-top: 0px;
     }
+
     .meal-content-container {
         width: 95%;
         padding-top: 100px;

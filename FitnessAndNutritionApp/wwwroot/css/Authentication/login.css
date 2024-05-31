@@ -1,34 +1,32 @@
-﻿/* Stilul de bază */
-body, html {
+﻿body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Font mai modern */
-    background: #fff; /* Setează un background alb sau altă culoare dorită */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    background: #fff;
 }
 
 .form-title {
-    position: relative; /* Schimbăm poziția în relativă */
+    position: relative; 
     font-size: 38px;
-    width: 100%; /* Face titlul să aibă lățimea completă a containerului său */
-    text-align: center; /* Centrează textul */
+    width: 100%; 
+    text-align: center; 
     font-weight: 700;
 }
 
 .form-links {
-    display: flex; /* Activează flexbox */
-    justify-content: space-between; /* Distribuie spațiul egal între linkuri */
-    align-items: center; /* Centrează elementele pe verticală */
-    margin-top: 8px; /* Spațiu deasupra */
-    margin-bottom: 8px; /* Spațiu dedesubt */
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: 8px; 
+    margin-bottom: 8px; 
 }
 
-/* Stiluri comune pentru ambele linkuri */
 .form-links a {
-    font-size: 0.8em; /* Mărimea fontului */
-    color: #000000; /* Culoare text */
-    text-decoration: underline; /* Subliniază linkul */
-    cursor: pointer; /* Cursor ca pentru un link */
+    font-size: 0.8em; 
+    color: #000000; 
+    text-decoration: underline; 
+    cursor: pointer; 
 }
 
 .container {
@@ -36,18 +34,16 @@ body, html {
     min-height: 100vh;
 }
 
-/* Stil pentru partea de formular */
 .login-form {
     flex: 1;
     display: flex;
-    flex-direction: column; /* Aranjăm elementele într-o coloană */
+    flex-direction: column; 
     justify-content: center;
     align-items: center;
-    padding: 60px 0; /* Ajustăm padding-ul pentru a centra conținutul */
+    padding: 60px 0; 
     margin-top: -100px;
 }
 
-/* Stil pentru partea cu imagine */
 .login-image {
     flex: 1;
     background-image: url('../../resources/Authentication/login.jpg');
@@ -55,64 +51,59 @@ body, html {
     background-position: center;
 }
 
-/* Stilizarea formularului în interiorul containerului său */
 form {
-    box-shadow: none; /* Înlăturăm umbra */
-    border: none; /* Înlăturăm bordura */
+    box-shadow: none; 
+    border: none;
     padding: 40px;
-    background: #ffffff; /* Background alb pentru formular */
-    width: 60%; /* Lățimea formularului ajustată */
-    max-width: 500px; /* Lățime maximă ajustată */
-    margin-top: -50px; /* Ajustează poziționarea verticală */
+    background: #ffffff;
+    width: 60%; 
+    max-width: 500px; 
+    margin-top: -50px; 
 }
 
-/* Stilizarea inputurilor și etichetelor */
 .form-group {
-    margin-bottom: 20px; /* Spațiere între câmpuri */
+    margin-bottom: 20px; 
 }
 
 label {
     display: block;
     margin-bottom: 0.5rem;
-    color: #333; /* Culoare mai închisă pentru text */
+    color: #333; 
 }
 
 input[type="email"],
 input[type="password"] {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px; /* Spațiere între input și mesajul de eroare */
+    margin-bottom: 10px; 
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
 }
 
-/* Stilizarea butonului de submit */
 button[type="submit"] {
     width: 100%;
-    padding: 15px; /* Ajustează grosimea pentru confort */
-    margin-top: 10px; /* Spațiere deasupra butonului */
+    padding: 15px; 
+    margin-top: 10px; 
     border: none;
-    border-radius: 20px; /* Mărește valoarea pentru un efect mai rotunjit */
-    background-color: #000; /* Buton negru */
-    color: #fff; /* Text alb */
-    font-size: 16px; /* Mărimea fontului */
+    border-radius: 20px; 
+    background-color: #000; 
+    color: #fff; 
+    font-size: 16px; 
     cursor: pointer;
-    font-weight: bold; /* Facem textul mai gros */
-    outline: none; /* Elimină conturul atunci când butonul este focusat */
-    box-shadow: none; /* Elimină orice umbră dacă este setată */
+    font-weight: bold;
+    outline: none;
+    box-shadow: none; 
 }
 
 button[type="submit"]:hover {
-    background-color: #444; /* Închide culoarea la hover */
+    background-color: #444; 
 }
 
-/* Mesajele de eroare */
 .text-danger {
-    color: #ff3860; /* O nuanță de roșu pentru erori */
+    color: #ff3860; 
 }
 
-/* Media query pentru ecrane mai mici */
 @media (max-width: 1111px) {
     .container {
         flex-direction: column;
@@ -123,15 +114,14 @@ button[type="submit"]:hover {
     }
 
     .login-form {
-        width: 80%; /* Ajustează lățimea pe ecrane mai mici */
-        margin-top: -50px; /* Menține formularul mai sus */
+        width: 80%; 
+        margin-top: -50px; 
     }
 }
 
-/* Media query pentru ecrane și mai mici */
 @media (max-width: 768px) {
     .login-form {
-        width: 90%; /* Lățimea formularului mai mare pe ecrane foarte mici */
-        margin-top: 0; /* Reset la marginea de sus */
+        width: 90%; 
+        margin-top: 0; 
     } 
 }

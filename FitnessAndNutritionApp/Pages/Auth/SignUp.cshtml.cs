@@ -31,7 +31,6 @@ namespace FitnessAndNutritionApp.Pages.Auth
                 return Page();
             }
 
-            // Verifică dacă există deja un utilizator cu același email
             var existingUser = await _userManager.FindByEmailAsync(SignUpInfo.Email);
             if (existingUser != null)
             {
@@ -50,10 +49,10 @@ namespace FitnessAndNutritionApp.Pages.Auth
                 FirstName = SignUpInfo.FirstName,
                 LastName = SignUpInfo.LastName,
                 Email = SignUpInfo.Email,
-                UserName = SignUpInfo.Email, // Adaugă această linie pentru a seta UserName la adresa de email
+                UserName = SignUpInfo.Email, 
             };
 
-            // Creează utilizatorul și hash-ul parolei
+            // Creează utilizatorul si hash-ul parolei
             var result = await _userManager.CreateAsync(user, SignUpInfo.Password);
 
             if (result.Succeeded)
@@ -62,17 +61,14 @@ namespace FitnessAndNutritionApp.Pages.Auth
                 var roleResult = await _userManager.AddToRoleAsync(user, "User");
                 if (!roleResult.Succeeded)
                 {
-                    // Gestionează cazul în care atribuirea rolului nu reușește
+                    // Gestioneaza cazul in care atribuirea rolului nu reuseste
                     foreach (var error in roleResult.Errors)
                     {
                         ModelState.AddModelError(string.Empty, error.Description);
                     }
-                    // O opțiune este să ștergi utilizatorul dacă atribuirea rolului eșuează
-                    // Asta rămâne la discreția ta
                     return Page();
                 }
 
-                // Autentifică utilizatorul și redirecționează-l către pagina dorită
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 return RedirectToPage("/Index");
             }
@@ -82,7 +78,6 @@ namespace FitnessAndNutritionApp.Pages.Auth
                 ModelState.AddModelError(string.Empty, error.Description);
             }
 
-            // Dacă am ajuns aici, ceva a eșuat, reafisează formularul
             return Page();
         }
     }

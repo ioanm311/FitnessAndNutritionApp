@@ -3,3 +3,235 @@
 @{
     Layout = "_AdminLayout";
 }
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page - NutriFit</title>
+    <link rel="stylesheet" href="~/css/admin.css">
+</head>
+<body>
+    <div class="content-container">
+        <!-- User Management Section -->
+        <h2>User Management</h2>
+        <form method="post" asp-page-handler="Search">
+            <input type="text" asp-for="SearchTerm" class="search-bar" placeholder="Search users by name" />
+            <button type="submit" class="button">Search</button>
+        </form>
+
+        @if (Model.Users != null && Model.Users.Count > 0)
+        {
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Username</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var user in Model.Users)
+                    {
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.UserName</td>
+                            <td>@user.FirstName</td>
+                            <td>@user.LastName</td>
+                            <td>
+                                <form method="post" asp-page-handler="Delete" asp-route-userId="@user.Id" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                    <button type="submit">Delete</button>
+                                </form>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else if (Model.Users != null)
+        {
+            <p>No users found.</p>
+        }
+
+        <h3 class="collapsible">Get All Users <span>&gt;</span></h3>
+        <div class="content">
+            <form method="post" asp-page-handler="GetAllUsers">
+                <button type="submit" class="button">Load All Users</button>
+            </form>
+
+            @if (Model.AllUsers != null && Model.AllUsers.Count > 0)
+            {
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Username</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var user in Model.AllUsers)
+                        {
+                            <tr>
+                                <td>@user.Id</td>
+                                <td>@user.UserName</td>
+                                <td>@user.FirstName</td>
+                                <td>@user.LastName</td>
+                                <td>
+                                    <form method="post" asp-page-handler="Delete" asp-route-userId="@user.Id" onsubmit="return confirm('Are you sure you want to delete this user?');">
+                                        <button type="submit">Delete</button>
+                                    </form>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else if (Model.AllUsers != null)
+            {
+                <p>No users found.</p>
+            }
+        </div>
+
+        <!-- Fitness Statistics Section -->
+        <h2>Fitness Statistics</h2>
+
+        <h3 class="collapsible">Plan Usage Statistics <span>&gt;</span></h3>
+        <div class="content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Plan Type</th>
+                        <th>Number of Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.PlanUsageStats)
+                    {
+                        <tr>
+                            <td>@item.Key</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                    @if (!Model.PlanUsageStats.Any())
+                    {
+                        <tr>
+                            <td colspan="2">No data available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="collapsible">Exercise Frequency Statistics <span>&gt;</span></h3>
+        <div class="content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Exercise ID</th>
+                        <th>Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.ExerciseFrequencyStats)
+                    {
+                        <tr>
+                            <td>@item.Key</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                    @if (!Model.ExerciseFrequencyStats.Any())
+                    {
+                        <tr>
+                            <td colspan="2">No data available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Nutrition Statistics Section -->
+        <h2>Nutrition Statistics</h2>
+
+        <h3 class="collapsible">Nutrition Plan Usage Statistics <span>&gt;</span></h3>
+        <div class="content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Plan Type</th>
+                        <th>Number of Users</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.NutritionPlanUsageStats)
+                    {
+                        <tr>
+                            <td>@item.Key</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                    @if (!Model.NutritionPlanUsageStats.Any())
+                    {
+                        <tr>
+                            <td colspan="2">No data available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <h3 class="collapsible">Meal Frequency Statistics <span>&gt;</span></h3>
+        <div class="content">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Meal ID</th>
+                        <th>Frequency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.MealFrequencyStats)
+                    {
+                        <tr>
+                            <td>@item.Key</td>
+                            <td>@item.Value</td>
+                        </tr>
+                    }
+                    @if (!Model.MealFrequencyStats.Any())
+                    {
+                        <tr>
+                            <td colspan="2">No data available</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var coll = document.getElementsByClassName("collapsible");
+                for (var i = 0; i < coll.length; i++) {
+                    coll[i].addEventListener("click", function () {
+                        this.classList.toggle("active");
+                        var content = this.nextElementSibling;
+                        if (content.style.display === "block") {
+                            content.style.display = "none";
+                            this.querySelector("span").innerHTML = "&gt;";
+                        } else {
+                            content.style.display = "block";
+                            this.querySelector("span").innerHTML = "&#9660;";
+                        }
+                    });
+                }
+            });
+        </script>
+    }
+</body>
+</html>

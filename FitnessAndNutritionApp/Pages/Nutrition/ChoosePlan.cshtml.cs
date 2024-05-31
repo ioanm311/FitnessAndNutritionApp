@@ -7,12 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FitnessAndNutritionApp.Pages.Nutrition
 {
-    public class ChoosePlanModel : BasePageModel  // Inherits from BasePageModel
+    public class ChoosePlanModel : BasePageModel  
     {
         private readonly ApplicationDbContext _context;
 
         public ChoosePlanModel(ApplicationDbContext context, UserManager<User> userManager)
-            : base(userManager)  // Call constructor from BasePageModel
+            : base(userManager)  
         {
             _context = context;
         }
@@ -102,7 +102,6 @@ namespace FitnessAndNutritionApp.Pages.Nutrition
                     }
                 }
 
-                // Final save to ensure all changes are committed
                 await _context.SaveChangesAsync();
                 return RedirectToPage("/NutritionPlanDetails/PlanDetails");
             }

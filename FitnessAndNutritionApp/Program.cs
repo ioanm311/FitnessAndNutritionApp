@@ -7,13 +7,12 @@ using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Adaugă serviciul de sesiuni în container
-builder.Services.AddDistributedMemoryCache(); // Necesar pentru stocarea sesiunilor în memoria distribuită
+builder.Services.AddDistributedMemoryCache(); 
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30); // Ajustează după necesități
-    options.Cookie.HttpOnly = true; // Securitate îmbunătățită
-    options.Cookie.IsEssential = true; // Cookie-ul sesiunii este esențial pentru funcționarea aplicației
+    options.IdleTimeout = TimeSpan.FromMinutes(30); 
+    options.Cookie.HttpOnly = true; 
+    options.Cookie.IsEssential = true; 
 });
 
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -22,8 +21,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 // Configurarea Identity
 builder.Services.AddIdentity<User, Role>(options =>
 {
-    options.User.RequireUniqueEmail = true; // Utilizează email-ul ca username unic
-    // Setări suplimentare
+    options.User.RequireUniqueEmail = true; // Utilizeaza email-ul ca username unic
 })
 .AddEntityFrameworkStores<ApplicationDbContext>()
 .AddDefaultTokenProviders();
@@ -61,7 +59,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-// Crează cont de admin înainte de a rula aplicația
+// Creaza cont de admin inainte de a rula aplicatia
 using (var scope = app.Services.CreateScope())
 {
     var serviceProvider = scope.ServiceProvider;

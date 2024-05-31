@@ -9,12 +9,12 @@ namespace FitnessAndNutritionApp.Pages.Auth
     public class LoginModel : PageModel
     {
         private readonly SignInManager<User> _signInManager;
-        private readonly UserManager<User> _userManager; // Adaugă UserManager
+        private readonly UserManager<User> _userManager; 
 
         public LoginModel(SignInManager<User> signInManager, UserManager<User> userManager)
         {
             _signInManager = signInManager;
-            _userManager = userManager; // Inițializează UserManager
+            _userManager = userManager; 
         }
 
         [BindProperty]
@@ -38,26 +38,19 @@ namespace FitnessAndNutritionApp.Pages.Auth
                 var result = await _signInManager.PasswordSignInAsync(Input.Email, Input.Password, isPersistent: false, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    // Preia utilizatorul pe baza email-ului
                     var user = await _userManager.FindByEmailAsync(Input.Email);
-                    // Preia rolurile utilizatorului
                     var roles = await _userManager.GetRolesAsync(user);
 
-                    // Presupunând că ai definit "Admin" ca rol în SeedData
                     var isAdmin = roles.Any(role => role == "Admin");
 
-                    // Setează valoarea rolului în sesiune
                     HttpContext.Session.SetString("UserRole", isAdmin ? "Admin" : "User");
 
-                    // Redirecționează către paginile corespunzătoare pe baza rolului
                     if (isAdmin)
                     {
-                        // Redirecționează către pagina specială pentru admin
                         return RedirectToPage("/Admin/AdminPage");
                     }
                     else
                     {
-                        // Redirecționează către pagina principală pentru utilizatorii obișnuiți
                         return LocalRedirect(Url.Content("~/"));
                     }
                 }

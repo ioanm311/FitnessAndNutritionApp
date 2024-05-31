@@ -1,0 +1,179 @@
+﻿body {
+    font-family: Arial, sans-serif;
+}
+
+.content-container {
+    margin-top: 70px;
+    padding: 20px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 18px;
+    text-align: left;
+}
+
+    .table th, .table td {
+        padding: 12px;
+        border: 1px solid #ddd;
+    }
+
+    .table th {
+        background-color: #f2f2f2;
+    }
+
+    .table tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+
+
+input[type="text"].search-bar {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 300px;
+    transition: border-color 0.3s;
+}
+
+    input[type="text"].search-bar:focus {
+        border-color: #007BFF;
+        outline: none;
+    }
+
+form button {
+    padding: 5px 10px;
+    font-size: 14px;
+    color: white;
+    background-color: #dc3545;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+    form button:hover {
+        background-color: #c82333;
+    }
+
+.button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+    .button:hover {
+        background-color: #0056b3;
+    }
+
+.collapsible {
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    background-color: #e0e0e0; 
+    margin-top: 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+    .collapsible span {
+        float: right;
+    }
+
+.content {
+    display: none;
+    overflow: hidden;
+    padding: 0 18px;
+    background-color: #f9f9f9;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+.active, .collapsible:hover {
+    background-color: #ccc; 
+}
+
+h2 {
+    margin-top: 30px;
+}
+
+.section-spacing {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.collapsible + .content form .button {
+    background-color: #28a745; 
+}
+
+    .collapsible + .content form .button:hover {
+        background-color: #218838; 
+    }
+
+#fitness-stats, #nutrition-stats {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+@media only screen and (max-width: 1111px) {
+    .content-container {
+        padding: 15px;
+    }
+
+    .table {
+        font-size: 16px;
+    }
+
+    input[type="text"].search-bar {
+        width: 100%;
+    }
+
+    .button, form button {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    .collapsible {
+        font-size: 16px;
+    }
+}
+
+@media only screen and (max-width: 770px) {
+    .content-container {
+        padding: 10px;
+    }
+
+    .table {
+        font-size: 14px;
+    }
+
+    input[type="text"].search-bar {
+        width: 100%;
+        padding: 8px;
+        font-size: 14px;
+    }
+
+    .button, form button {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+
+    .collapsible {
+        font-size: 14px;
+    }
+
+    .table th, .table td {
+        padding: 8px;
+    }
+}

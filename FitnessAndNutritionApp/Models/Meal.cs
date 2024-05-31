@@ -10,7 +10,6 @@
         public string PlanType { get; set; }
         public string DayOfWeek { get; set; }
 
-        // Relație many-to-many cu NutritionPlanDetail
         public List<NutritionPlanDetail> NutritionPlanDetails { get; set; }
     }
 }

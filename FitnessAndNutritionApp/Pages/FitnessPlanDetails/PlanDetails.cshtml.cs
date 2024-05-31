@@ -9,7 +9,7 @@ namespace FitnessAndNutritionApp.Pages.FitnessPlanDetails
 {
     public class PlanDetailsModel : BasePageModel
     {
-        private readonly ApplicationDbContext _context; // Asigură-te că numele contextului este corect
+        private readonly ApplicationDbContext _context; 
         private readonly UserManager<User> _userManager;
 
         public PlanDetailsModel(ApplicationDbContext context, UserManager<User> userManager) : base(userManager)
@@ -19,9 +19,9 @@ namespace FitnessAndNutritionApp.Pages.FitnessPlanDetails
         }
 
         [BindProperty(SupportsGet = true)]
-        public string SelectedDay { get; set; } // Ziua selectată din frontend
+        public string SelectedDay { get; set; } 
 
-        public List<Exercise> ExercisesForDay { get; set; } // Lista de exerciții pentru ziua selectată
+        public List<Exercise> ExercisesForDay { get; set; } 
 
         public void OnGet()
         {
@@ -32,7 +32,7 @@ namespace FitnessAndNutritionApp.Pages.FitnessPlanDetails
                                               .Where(fp => fp.UserID.ToString() == userId && fp.IsActive)
                                               .Select(fp => fp.PlanType)
                                               .Distinct()
-                                              .ToList();  // Colectează tipurile de planuri active
+                                              .ToList();  
 
                 if (activePlanTypes.Any())
                 {

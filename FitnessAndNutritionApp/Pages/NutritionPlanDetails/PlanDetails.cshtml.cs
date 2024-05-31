@@ -20,9 +20,9 @@ namespace FitnessAndNutritionApp.Pages.NutritionPlanDetails
         }
 
         [BindProperty(SupportsGet = true)]
-        public string SelectedDay { get; set; } // Ziua selectată din frontend
+        public string SelectedDay { get; set; } 
 
-        public List<Meal> MealsForDay { get; set; } // Lista de mese pentru ziua selectată
+        public List<Meal> MealsForDay { get; set; } 
 
         public void OnGet()
         {
@@ -33,7 +33,7 @@ namespace FitnessAndNutritionApp.Pages.NutritionPlanDetails
                                               .Where(np => np.UserID.ToString() == userId && np.IsActive)
                                               .Select(np => np.PlanType)
                                               .Distinct()
-                                              .ToList();  // Colectează tipurile de planuri active
+                                              .ToList();  
 
                 if (activePlanTypes.Any())
                 {

@@ -23,7 +23,7 @@ namespace FitnessAndNutritionApp.DAL
         {
             base.OnModelCreating(modelBuilder);
 
-            // Configurare relație many-to-many între FitnessPlanDetail și Exercise
+            // Configurare relatie many-to-many intre FitnessPlanDetail si Exercise
             modelBuilder.Entity<FitnessPlanDetail>()
             .HasMany(fpd => fpd.Exercises)
             .WithMany(e => e.FitnessPlanDetails)
@@ -31,13 +31,13 @@ namespace FitnessAndNutritionApp.DAL
                 "FitnessPlanDetailExercise", // Numele tabelului de join
                 j => j.HasOne<Exercise>()
                     .WithMany()
-                    .HasForeignKey("ExerciseID"), // Nume personalizat pentru FK către Exercise
+                    .HasForeignKey("ExerciseID"), // Nume personalizat pentru FK catre Exercise
                 j => j.HasOne<FitnessPlanDetail>()
                     .WithMany()
-                    .HasForeignKey("FitnessDetailID") // Nume personalizat pentru FK către FitnessPlanDetail
+                    .HasForeignKey("FitnessDetailID") // Nume personalizat pentru FK catre FitnessPlanDetail
             );
 
-            // Configurare relație many-to-many între NutritionPlanDetail și Meal
+            // Configurare relatie many-to-many intre NutritionPlanDetail si Meal
             modelBuilder.Entity<NutritionPlanDetail>()
                 .HasMany(npd => npd.Meals)
                 .WithMany(m => m.NutritionPlanDetails)
@@ -45,10 +45,10 @@ namespace FitnessAndNutritionApp.DAL
                     "NutritionPlanDetailMeal", // Numele tabelului de join
                     j => j.HasOne<Meal>()
                         .WithMany()
-                        .HasForeignKey("MealID"), // Nume personalizat pentru FK către Meal
+                        .HasForeignKey("MealID"), // Nume personalizat pentru FK catre Meal
                     j => j.HasOne<NutritionPlanDetail>()
                         .WithMany()
-                        .HasForeignKey("NutritionDetailID") // Nume personalizat pentru FK către NutritionPlanDetail
+                        .HasForeignKey("NutritionDetailID") // Nume personalizat pentru FK catre NutritionPlanDetail
                 );
         }
     }

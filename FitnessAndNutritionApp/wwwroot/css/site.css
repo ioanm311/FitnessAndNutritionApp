@@ -1,25 +1,17 @@
-﻿/*=============== GOOGLE FONTS ===============*/
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
-/*=============== VARIABLES CSS ===============*/
+﻿@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
 :root {
     --header-height: 3.5rem;
-    /*========== Colors ==========*/
-    /*Color mode HSL(hue, saturation, lightness)*/
     --first-color: hsl(220, 68%, 54%);
     --first-color-lighten: hsl(220, 68%, 97%);
     --title-color: hsl(220, 48%, 28%);
     --text-color: hsl(220, 12%, 45%);
     --body-color: hsl(220, 100%, 99%);
-    /*========== Font and typography ==========*/
-    /*.5rem = 8px | 1rem = 16px ...*/
     --body-font: "Poppins", sans-serif;
     --normal-font-size: .938rem;
     --small-font-size: .813rem;
     --smaller-font-size: .75rem;
-    /*========== Font weight ==========*/
     --font-medium: 500;
     --font-semi-bold: 600;
-    /*========== z index ==========*/
     --z-tooltip: 10;
     --z-fixed: 100;
 }
@@ -32,7 +24,6 @@
     }
 }
 
-/*=============== BASE ===============*/
 * {
     box-sizing: border-box;
     padding: 0;
@@ -54,13 +45,11 @@ a {
     text-decoration: none;
 }
 
-/*=============== REUSABLE CSS CLASSES ===============*/
 .container {
     max-width: 1120px;
     margin-inline: 1.5rem;
 }
 
-/*=============== HEADER ===============*/
 .header {
     position: fixed;
     top: 0;
@@ -71,7 +60,6 @@ a {
     z-index: 100;
 }
 
-/*=============== NAV ===============*/
 .nav {
     height: 3.5rem;
 }
@@ -137,7 +125,7 @@ a {
     }
 
     .circle-btn {
-        margin-left: 1rem; /* sau oricât spațiu dorești să adaugi */
+        margin-left: 1rem; 
     }
 
     .nav__menu::-webkit-scrollbar {
@@ -150,21 +138,19 @@ a {
 
     .nav__auth-container {
         position: absolute;
-        right: 50px; /* Ajustează după cum este necesar */
-        top: 50%; /* Poziționează containerul la jumătatea înălțimii */
-        transform: translateY(-50%); /* Deplasează containerul înapoi cu jumătate din propria înălțime pentru a centra */
-        z-index: 100; /* Asigură-te că este sub .nav__toggle dar peste alte elemente */
+        right: 50px; 
+        top: 50%; 
+        transform: translateY(-50%); 
+        z-index: 100; 
         display: flex;
         align-items: center;
     }
 
-    /* Ajustează padding-ul butoanelor dacă este necesar */
     .nav__auth-link {
-        padding: 10px 12px; /* sau orice alte valori necesare */
-        margin-right: 10px; /* sau ajustează acesta cum este necesar */
+        padding: 10px 12px; 
+        margin-right: 10px; 
     }
 
-    /* Ajustează ultimul buton, dacă este necesar */
     .nav__auth-link:last-child {
         margin-right: 0;
     }
@@ -183,8 +169,8 @@ a {
 button.nav__auth-link {
     background: none;
     border: none;
-    color: var(--title-color); /* Acesta este culoarea specificată pentru linkuri în variabilele CSS */
-    padding: var(--padding-link); /* Trebuie să setezi o variabilă pentru padding sau să folosești o valoare direct */
+    color: var(--title-color); 
+    padding: var(--padding-link); 
     cursor: pointer;
     text-align: left;
     font-family: inherit;
@@ -192,46 +178,40 @@ button.nav__auth-link {
 }
 
 button.nav__auth-link:hover {
-    color: var(--first-color); /* Efect de hover pentru a indica interactivitatea */
+    color: var(--first-color); 
 }
 
-/* Stiluri specifice pentru butonul circular cu clasa .circle-btn */
 .circle-btn {
-    background-color: hsl(220, 48%, 28%); /* Culoarea de fundal a butonului */
-    border-radius: 50%; /* Face butonul rotund */
-    color: white; /* Culoarea textului */
-    display: flex; /* Centrarea conținutului butonului */
-    align-items: center; /* Centrarea verticală */
-    justify-content: center; /* Centrarea orizontală */
-    font-size: 1rem; /* Dimensiunea textului */
-    width: 40px; /* Lățimea butonului */
-    height: 40px; /* Înălțimea butonului */
-    margin-top: 24px; /* Ajustează acest număr pentru a coborî butonul 'U' */
-    position: relative; /* Setează la relativ pentru a putea ajusta poziționarea */
-}
+    background-color: hsl(220, 48%, 28%); 
+    border-radius: 50%; 
+    color: white; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1rem; 
+    width: 40px; 
+    height: 40px; 
+    margin-top: 24px;
+    position: relative; 
 
 .nav__link:hover {
     background-color: hsl(220, 68%, 97%);
 }
-/* Aliniază containerul de autentificare la dreapta */
 .nav__auth-container {
     display: flex;
-    justify-content: flex-end; /* Aliniază butoanele la capătul din dreapta */
+    justify-content: flex-end; 
 }
 
-/* Stiluri pentru linkurile din containerul de autentificare */
 .nav__auth-link {
     padding: 10px 15px;
     margin-right: 20px;
 }
-/* Show menu */
 .show-menu {
     opacity: 1;
     top: 3.5rem;
     pointer-events: initial;
 }
 
-/* Show icon */
 .show-icon .nav__toggle-menu {
     opacity: 0;
     transform: rotate(90deg);
@@ -242,7 +222,6 @@ button.nav__auth-link:hover {
     transform: rotate(90deg);
 }
 
-/*=============== DROPDOWN ===============*/
 .dropdown__button {
     cursor: pointer;
 }
@@ -307,21 +286,16 @@ button.nav__auth-link:hover {
     color: hsl(220, 48%, 28%);
 }
 
-/* Rotate dropdown icon */
 .show-dropdown .dropdown__arrow {
     transform: rotate(180deg);
 }
 
-/*=============== BREAKPOINTS ===============*/
-/* For small devices */
 @media screen and (max-width: 300px) {
     .dropdown__group {
         padding-left: 1.5rem;
     }
 }
-/* For large devices */
 @media screen and (min-width: 1118px) {
-    /* Nav */
     .nav {
         height: calc(3.5rem + 2rem);
         display: flex;
@@ -349,7 +323,6 @@ button.nav__auth-link:hover {
     .nav__link:hover {
         background-color: initial;
     }
-    /* Dropdown */
     .dropdown__button {
         column-gap: 0.25rem;
         pointer-events: none;
@@ -366,10 +339,9 @@ button.nav__auth-link:hover {
         pointer-events: none;
         opacity: 0;
         transition: top 0.4s, opacity 0.3s;
-        /*nou*/
-        display: flex; /* folosește flexbox pentru a centra conținutul */
-        justify-content: center; /* centrează conținutul pe orizontală */
-        align-items: center; /* centrează conținutul pe verticală */
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
     }
 
     .dropdown__content {
@@ -377,7 +349,6 @@ button.nav__auth-link:hover {
         column-gap: 6rem;
         max-width: 1120px;
         margin-inline: auto;
-        /*nou*/
         padding: 0.65rem 0;
     }
 
@@ -385,8 +356,7 @@ button.nav__auth-link:hover {
         padding: 4rem 0;
         align-content: baseline;
         row-gap: 1.25rem;
-        /*nou*/
-        justify-self: center; /* centrează fiecare grup pe orizontală în grid-ul lor */
+        justify-self: center; 
         width: auto;
     }
 
@@ -446,7 +416,7 @@ button.nav__auth-link:hover {
     }
 }
 
-/* FOOOOTERRR */
+/* FOOTER */
 body {
     display: flex;
     flex-direction: column;
